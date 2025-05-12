@@ -5,9 +5,9 @@ import sys
 
 # Configuration for each Pi
 CONFIG = {
-    1: {"listen_port": 65517, "next_ip": "192.168.1.2", "next_port": 6552},
-    2: {"listen_port": 5442, "next_ip": "192.168.1.3", "next_port": 65517},
-    3: {"listen_port": 65517, "next_ip": "192.168.1.17", "next_port": 6},
+    1: {"listen_port": 65517, "next_ip": "192.168.1.1", "next_port": 6553},
+    2: {"listen_port": 6551, "next_ip": "192.168.1.2", "next_port": 6553},
+    3: {"listen_port": 6553, "next_ip": "192.168.1.17", "next_port": 65517},
 }
 
 pi_id = int(sys.argv[1])
@@ -62,4 +62,4 @@ def start():
 
 
 if __name__ == "__main__":
-    start(
+    start()

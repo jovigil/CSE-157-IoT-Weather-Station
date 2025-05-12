@@ -1,0 +1,17 @@
+# interfaces(5) file used by ifup(8) and ifdown(8)
+# Include files from /etc/network/interfaces.d:
+source /etc/network/interfaces.d/
+# Automatically startup loopback device
+auto lo iface lo inet loopback
+# Automatically startup ethernet
+auto eth0 iface eth0 inet manual
+# Automatically start up ad-hoc network w/ static config
+auto wlan0
+  iface wlan0 inet static
+  address 169.233.1.17
+  netmask 255.255.255.0
+  wireless-channel 5
+  wireless-essid BoxSprings
+  wireless-mode ad-hoc
+#post-up python3 /home/joey/lab1/generate_report.py
+
