@@ -5,9 +5,9 @@ import sys
 
 # Configuration for each Pi
 CONFIG = {
-    1: {"listen_port": 5001, "next_ip": "192.168.1.102", "next_port": 5002},
-    2: {"listen_port": 5002, "next_ip": "192.168.1.103", "next_port": 5003},
-    3: {"listen_port": 5003, "next_ip": "192.168.1.101", "next_port": 5001},
+    1: {"listen_port": 65517, "next_ip": "192.168.1.2", "next_port": 6552},
+    2: {"listen_port": 5442, "next_ip": "192.168.1.3", "next_port": 65517},
+    3: {"listen_port": 65517, "next_ip": "192.168.1.17", "next_port": 6},
 }
 
 pi_id = int(sys.argv[1])
@@ -30,7 +30,7 @@ def handle_connection():
                         send_token("token")
                 else:
                     if data == "token":
-                        time.sleep(1)  # Optional: simulate work
+                        time.sleep(1)  
                         send_token("token")
 
 
