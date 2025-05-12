@@ -1,0 +1,69 @@
+Received b'Hello, world' from ('127.0.0.1', 51208)
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Error: timed out, on port 8756
+Received b'Hello, world' from ('127.0.0.1', 37342)
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Received b'Hello, world' from ('127.0.0.1', 32866)
+Received 3224880
+Received 3224880
+Error: [Errno 111] Connection refused, on port 57828
+Received b'Hello, world' from ('169.233.1.2', 36032)
+Error: [Errno 111] Connection refused, on port 12132
+Received b'Hello, world' from ('169.233.1.2', 33536)
+Received b'Hello, world' from ('169.233.1.2', 43192)
+Error: [Errno 111] Connection refused, on port 43859
+Received b'Hello, world' from ('169.233.1.2', 40132)
+Error: [Errno 111] Connection refused, on port 16375
+Received b'Hello, world' from ('169.233.1.2', 49106)
+Received b'Hello, world' from ('169.233.1.2', 36524)
+Received 3224880
+Received 3224880
+Received 3224880
+Received 3224880
+Error: timed out, on port 52934

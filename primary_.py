@@ -62,9 +62,9 @@ logger_client.addHandler(file_handler)
 
 
 
-HOST = "169.233.1.17"  # Standard loopback interface address (localhost)
-PORT = 65425  # Port to listen on (non-privileged ports are > 1023)
-CLIENT = 0
+HOST = "127.0.0.1"  # Standard loopback interface address (localhost)
+PORT = 65429  # Port to listen on (non-privileged ports are > 1023)
+
 
 
 used_ports = set()
@@ -74,12 +74,10 @@ s.bind((HOST, PORT))
 async def server():
     global used_ports
     global s
-    global CLIENT
     while True:
         s.listen()
         try:
             conn, addr = s.accept()
-            CLIENT = addr[0]
             data = conn.recv(1024)
             logger_server.info(f"Received {data!r} from {addr}")
 
@@ -107,8 +105,7 @@ async def get_pi_readings():
             c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             c.settimeout(2)
             try:
-                print(CLIENT)
-                c.connect((CLIENT, PORT))
+                c.connect((HOST, PORT))
                 c.sendall(b"Requesting data")
                 data = c.recv(1024)
                 logger_client.info(f"Received {int.from_bytes(data, byteorder='big')!r}")
