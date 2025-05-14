@@ -1,16 +1,5 @@
 import socket
 import random
-# First send request to pi 1 for readings
-# Wait for response
-
-# Send request to pi 2 for readings
-# Wait for response
-
-# Get its own sensor readings
-# Plot the readings
-
-# Repeat
-
 import asyncio
 import datetime
 import logging
@@ -18,51 +7,26 @@ import board
 import busio
 import time
 import simpleio
-# i2c = busio.I2C(board.SCL, board.SDA)
-
-# import adafruit_ads1x15.ads1015 as ADS
-
-# from adafruit_ads1x15.analog_in import AnalogIn
+import matplotlib.pyplot as plt
+import numpy as np
+import json
 
 
-# import adafruit_sht31d
-
-# # Create sensor object, communicating over the board's default I2C bus
-# # i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
-# temp_sensor = adafruit_sht31d.SHT31D(i2c)
-
-
-# from adafruit_seesaw.seesaw import Seesaw
-
-# ss = Seesaw(i2c, addr=0x36)
-
-# ads = ADS.ADS1015(i2c)
-# chan = AnalogIn(ads, ADS.P0)
-
-
-# Setting up our default logging format.
 logging.basicConfig(format='[%(asctime)s] (%(name)s) %(levelname)s: %(message)s',)
-# Set up loggers for each of our concurrent functions.
 logger_server = logging.getLogger('Server_logger')
 logger_client = logging.getLogger('Client_logger')
 
-# Set the logging level for each of our concurrent functions to INFO.
 logger_server.setLevel(logging.INFO)
 logger_client.setLevel(logging.INFO)
 
 
-# We will set up a common file handler for all of our loggers, and set it to INFO.
 file_handler = logging.FileHandler('primary.log')
 file_handler.setLevel(logging.INFO)
-# Add the file handler to each of our loggers.
 logger_server.addHandler(file_handler)
 logger_client.addHandler(file_handler)
 
 
-
-
-
-HOST = "169.233.1.17"  # Standard loopback interface address (localhost)
+HOST = "169.233.1.17" 
 PORT = 65425  # Port to listen on (non-privileged ports are > 1023)
 CLIENT = 0
 
@@ -71,6 +35,7 @@ used_ports = set()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.settimeout(1)
 s.bind((HOST, PORT))
+
 async def server():
     global used_ports
     global s
@@ -110,8 +75,8 @@ async def get_pi_readings():
                 print(CLIENT)
                 c.connect((CLIENT, PORT))
                 c.sendall(b"Requesting data")
-                data = c.recv(1024)
-                logger_client.info(f"Received {int.from_bytes(data, byteorder='big')!r}")
+                sensor_data = c.recv(1024)
+                plot_data(sensor_data)
                 c.close()
             except (socket.timeout, ConnectionRefusedError) as e:
                 logger_client.info(f"Error: {e}, on port {PORT}")
@@ -131,6 +96,39 @@ async def main():
             server(),
             get_pi_readings()
     )
+
+def plot_data(sensor_data_str):
+    """
+    Plot Pi #2's sensor data using matplotlib
+    """
+    data = json.loads(sensor_data_str)
+    temp = data["temperature"]
+    hum = data["humidity"]
+    soil_temp = data["soil_temp"]
+    soil_moist = data["soil_moist"]
+    wind_speed = data["wind_speed"]
+    
+    x_temp = np.linspace(0, 35)
+    x_hum = np.linspace(0,100)
+    x_soil_temp = np.linspace(0, 35)
+    x_soil_moist = np.linspace(0, 2000)
+    x_wind_speed = np.linspace(0, 20)
+    
+    fig, axs = plt.subplots(5,1)
+    fig.suptitle(f"Raspberry Pi \({CLIENT}\)'s Sensor Data")
+    axs[0,0].plot(x_temp, temp)
+    axs[0,0].set_title("Temperature")
+    axs[1,0].plot(x_hum, hum)
+    axs[1,0].set_title("Humidity")
+    axs[2,0].plot(x_soil_temp, soil_temp)
+    axs[2,0].set_title("Soil Temperature")
+    axs[3,0].plot(x_soil_moist, soil_moist)
+    axs[3,0].set_title("Soil Moisture")
+    axs[4,0].plot(x_wind_speed, wind_speed)
+    axs[4,0].set_title("Wind Speed")
+    
+    
+    
 
 if __name__ == "__main__":
     # We will use a try/except block to catch the KeyboardInterrupt.
