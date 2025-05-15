@@ -27,33 +27,31 @@ logger_client.addHandler(file_handler)
 
 
 HOST = "169.233.1.17" 
-PORT = 65425  # Port to listen on (non-privileged ports are > 1023)
-CLIENT = 0
+PORT = 65425  # Port to listen on 
 
 
-used_ports = set()
+CLIENTS = set()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.settimeout(1)
 s.bind((HOST, PORT))
 
 async def server():
-    global used_ports
+    global CLIENTS
     global s
-    global CLIENT
     while True:
         s.listen()
         try:
             conn, addr = s.accept()
-            CLIENT = addr[0]
+            CLIENTS.add(addr[0])
             data = conn.recv(1024)
             logger_server.info(f"Received {data!r} from {addr}")
 
-            #generate port number
-            port = random.randint(1024, 65535)
-            while port in used_ports:
-                port = random.randint(1024, 65535)
-            used_ports.add(port)
-            conn.sendall(port.to_bytes(2, byteorder='big'))
+            # #generate port number
+            # port = random.randint(1024, 65535)
+            # while port in used_ports:
+            #     port = random.randint(1024, 65535)
+            # used_ports.add(port)
+            conn.sendall(b'Recieved connection')
             conn.close()
             time.sleep(0.5) #let client set up there server on new port
         except socket.timeout:
@@ -65,10 +63,11 @@ async def server():
 
 async def get_pi_readings():
     global c
-    global used_ports
+    global CLIENTS
+    global PORT
     round_number = 0
     while True:
-        for PORT in list(used_ports):
+        for CLIENT in list(CLIENTS):
             c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             c.settimeout(2)
             try:
@@ -81,8 +80,9 @@ async def get_pi_readings():
             except (socket.timeout, ConnectionRefusedError) as e:
                 logger_client.info(f"Error: {e}, on port {PORT}")
                 c.close()
-                used_ports.remove(PORT)
-        if used_ports:
+                CLIENTS.remove(CLIENT)
+        if CLIENTS:
+            #I think here we might need to also plot the sensor data of the primary pi
             round_number += 1
             print(f"Round {round_number} complete     plotting data...")
         await asyncio.sleep(1)

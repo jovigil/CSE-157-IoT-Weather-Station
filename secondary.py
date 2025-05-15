@@ -27,7 +27,7 @@ WIND_MAX = 32.4
 
 
 HOST = "169.233.1.17" 
-PORT = 65429  # Port to listen on (non-privileged ports are > 1023)
+PORT = 65425  # Port to listen on 
 
 
 sensor_data = {
@@ -39,16 +39,16 @@ sensor_data = {
 }
 
 
-def get_port_assigned():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+# def get_port_assigned():
+#     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    s.connect((HOST, PORT))
+#     s.connect((HOST, PORT))
 
-    s.sendall(b"Hello, world")
-    UPORT = int.from_bytes(s.recv(1024), byteorder='big')
-    print(f"Received port number {UPORT}")
-    s.close()
-    return UPORT
+#     s.sendall(b"Hello, world")
+#     UPORT = int.from_bytes(s.recv(1024), byteorder='big')
+#     print(f"Received port number {UPORT}")
+#     s.close()
+#     return UPORT
 
 def read_wind_speed(voltage):
     voltage = max(min(voltage, V_MAX), V_MIN)
@@ -82,8 +82,9 @@ async def read_adc():
 
 async def main():
     s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    UPORT = get_port_assigned()
-    s.bind((HOST, UPORT))
+    # UPORT = get_port_assigned()
+    global PORT
+    s.bind((HOST, PORT))
     s.listen()
     s.settimeout(5)
     i = 0
@@ -94,19 +95,18 @@ async def main():
             with conn:
                 data = conn.recv(1024)
                 print(f"Received {data!r} from {addr}")
-                if i == 5:
-                    time.sleep(5)
+                # if i == 5:  #This is just for testing
+                #     time.sleep(5)
                 await asyncio.gather(read_sht30(),
                              read_stemma(),
                              read_adc()
                             )
                 conn.send(json.dumps(sensor_data).encode())
         except (socket.timeout, ConnectionResetError, BrokenPipeError, OSError) as e:
-            print(f"Error: {e}, getting a new port")
-            UPORT = get_port_assigned()
+            print(f"Error: {e}, reconnecting...")
             s.close()
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.bind((HOST, UPORT))
+            s.bind((HOST, PORT))
             s.listen()
             s.settimeout(3)
 
