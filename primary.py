@@ -12,6 +12,19 @@ import numpy as np
 import json
 
 
+sensor_data = {
+    "temperature":[],
+    "humidity":[],
+    "soil_temp":[],
+    "soil_moist":[],
+    "wind_speed":[]
+}
+
+def compile_sensor_data(data_):
+    data = json.loads(data_)
+    for key in sensor_data:
+        sensor_data[key].append(data[key])
+
 logging.basicConfig(format='[%(asctime)s] (%(name)s) %(levelname)s: %(message)s',)
 logger_server = logging.getLogger('Server_logger')
 logger_client = logging.getLogger('Client_logger')
@@ -74,9 +87,9 @@ async def get_pi_readings():
                 print(CLIENT)
                 c.connect((CLIENT, PORT))
                 c.sendall(b"Requesting data")
-                sensor_data = c.recv(2048)
-                print(sensor_data)
-                plot_data(sensor_data)
+                data = c.recv(2048)
+                print(data)
+                compile_sensor_data(data)
                 c.close()
             except (socket.timeout, ConnectionRefusedError) as e:
                 logger_client.info(f"Error: {e}, on port {PORT}")
@@ -85,6 +98,7 @@ async def get_pi_readings():
         if CLIENTS:
             #I think here we might need to also plot the sensor data of the primary pi
             round_number += 1
+            plot_data()
             print(f"Round {round_number} complete     plotting data...")
         await asyncio.sleep(1)
 
@@ -98,11 +112,13 @@ async def main():
             get_pi_readings()
     )
 
-def plot_data(sensor_data_str):
+def plot_data():
     """
     Plot Pi #2's sensor data using matplotlib
     """
-    data = json.loads(sensor_data_str)
+    print(sensor_data)
+  #  data = json.loads(sensor_data_str)
+    data = sensor_data
     temp = data["temperature"]
     hum = data["humidity"]
     soil_temp = data["soil_temp"]
@@ -127,7 +143,10 @@ def plot_data(sensor_data_str):
 #     axs[3].set_title("Soil Moisture")
 #     axs[4].plot(x_wind_speed, wind_speed)
 #     axs[4].set_title("Wind Speed")
-    
+
+    #clear all the sensor data and start a new round
+    for entry in sensor_data.values():
+        entry.clear()
     
     
 
