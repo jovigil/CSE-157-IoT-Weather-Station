@@ -39,8 +39,8 @@ logger_server.addHandler(file_handler)
 logger_client.addHandler(file_handler)
 
 
-HOST = "169.233.1.17" 
-PORT = 65421  # Port to listen on 
+HOST = "169.233.1.9" 
+PORT = 65404  # Port to listen on 
 
 
 CLIENTS = set()
@@ -97,9 +97,12 @@ async def get_pi_readings():
                 CLIENTS.remove(CLIENT)
         if CLIENTS:
             #I think here we might need to also plot the sensor data of the primary pi
-            round_number += 1
-            plot_data()
-            print(f"Round {round_number} complete     plotting data...")
+            if len(CLIENTS) >= 2:
+                round_number += 1
+                plot_data(round_number)
+                print(f"Round {round_number} complete     plotting data...")
+            for entry in sensor_data.values():
+                entry.clear()
         await asyncio.sleep(1)
 
 
@@ -116,39 +119,45 @@ def plot_data(round_number):
     """
     Plot sensor data using matplotlib
     """
-    data = json.loads(sensor_data_str)
+    for key in sensor_data:
+        sensor_data[key].append(5)
+
+    print(sensor_data)
+    data = sensor_data #json.loads(sensor_data)
     temps = data["temperature"]
     hums = data["humidity"]
-    soil_temps = data["soil_temp"]
     soil_moists = data["soil_moist"]
     wind_speeds = data["wind_speed"]
-    graphs = [temps, hums, soil_temps,
+    print(("wind speed data: ", data["wind_speed"]))
+    graphs = [temps, hums,
               soil_moists, wind_speeds]
-    x_vals = np.array([1, 2, 3, 4]) #1 is sec1, 2 is sec2,
+    x_vals = np.array(["Sec1", "Sec2", "Primary", "Avg"]) #1 is sec1, 2 is sec2,
                                      #3 is primary and 4 is avg val
     colors = np.array(["blue", "green", "yellow", "pink"])
     titles = np.array(["Temperature", "Humidity",
                        "Soil Moisture", "Wind Speed"])
 
-    fig, axs = plt.subplots(5,1)
+    fig, axs = plt.subplots(1,4,figsize=(16,12))
     fig.suptitle(f"Raspberry Pi Sensor Data - Round {round_number}")
+    ind = 0
     for dataset in graphs:
         avg = 0
         for val in dataset:
             avg += val
         avg = avg / len(dataset)
         dataset.append(avg)
+        print(dataset)
         y_vals = np.array(dataset)
-        ax = axs[graphs.index(dataset)]
-        ax.scatter(x_vals,y_vals)
-        ax.set_title(titles[graphs.index(dataset)])
+        ax = axs[ind]
+        ax.scatter(x_vals,y_vals,c=colors)
+        ax.set_title(titles[ind])
+        print(titles[ind])
+        ind = ind + 1
 
     fname = f"polling-plot-{round_number}.png"
     plt.savefig(fname)
 
     #clear all the sensor data and start a new round
-    for entry in sensor_data.values():
-        entry.clear()
     
     
 
