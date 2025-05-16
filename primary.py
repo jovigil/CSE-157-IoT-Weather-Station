@@ -112,37 +112,39 @@ async def main():
             get_pi_readings()
     )
 
-def plot_data():
+def plot_data(round_number):
     """
-    Plot Pi #2's sensor data using matplotlib
+    Plot sensor data using matplotlib
     """
-    print(sensor_data)
-  #  data = json.loads(sensor_data_str)
-    data = sensor_data
-    temp = data["temperature"]
-    hum = data["humidity"]
-    soil_temp = data["soil_temp"]
-    soil_moist = data["soil_moist"]
-    wind_speed = data["wind_speed"]
-    
-    x_temp = np.linspace(0, 35)
-    x_hum = np.linspace(0,100)
-    x_soil_temp = np.linspace(0, 35)
-    x_soil_moist = np.linspace(0, 2000)
-    x_wind_speed = np.linspace(0, 20)
-    
-#     fig, axs = plt.subplots(5,1)
-#     fig.suptitle(f"Raspberry Pi Sensor Data")
-#     axs[0].plot(x_temp, temp)
-#     axs[0].set_title("Temperature")
-#     axs[1].plot(x_hum, hum)
-#     axs[1].set_title("Humidity")
-#     axs[2].plot(x_soil_temp, soil_temp)
-#     axs[2].set_title("Soil Temperature")
-#     axs[3].plot(x_soil_moist, soil_moist)
-#     axs[3].set_title("Soil Moisture")
-#     axs[4].plot(x_wind_speed, wind_speed)
-#     axs[4].set_title("Wind Speed")
+    data = json.loads(sensor_data_str)
+    temps = data["temperature"]
+    hums = data["humidity"]
+    soil_temps = data["soil_temp"]
+    soil_moists = data["soil_moist"]
+    wind_speeds = data["wind_speed"]
+    graphs = [temps, hums, soil_temps,
+              soil_moists, wind_speeds]
+    x_vals = np.array([1, 2, 3, 4]) #1 is sec1, 2 is sec2,
+                                     #3 is primary and 4 is avg val
+    colors = np.array(["blue", "green", "yellow", "pink"])
+    titles = np.array(["Temperature", "Humidity",
+                       "Soil Moisture", "Wind Speed"])
+
+    fig, axs = plt.subplots(5,1)
+    fig.suptitle(f"Raspberry Pi Sensor Data - Round {round_number}")
+    for dataset in graphs:
+        avg = 0
+        for val in dataset:
+            avg += val
+        avg = avg / len(dataset)
+        dataset.append(avg)
+        y_vals = np.array(dataset)
+        ax = axs[graphs.index(dataset)]
+        ax.scatter(x_vals,y_vals)
+        ax.set_title(titles[graphs.index(dataset)])
+
+    fname = f"polling-plot-{round_number}.png"
+    plt.savefig(fname)
 
     #clear all the sensor data and start a new round
     for entry in sensor_data.values():
