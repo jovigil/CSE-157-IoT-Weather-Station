@@ -37,8 +37,8 @@ sensor_data = {
 
 # Configuration for each Pi
 CONFIG = {
-    1: {"listen_port": 65430, "next_ip": "169.233.1.2", "next_port": 65430},
-    2: {"listen_port": 65432, "next_ip": "169.233.1.2", "next_port": 65432},
+    1: {"listen_port": 65432, "next_ip": "169.233.1.2", "next_port": 65432},
+    2: {"listen_port": 65432, "next_ip": "169.233.1.9", "next_port": 65432},
     3: {"listen_port": 65432, "next_ip": "169.233.1.17", "next_port": 65432},
 }
 
@@ -97,6 +97,7 @@ def handle_connection():
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind(('169.233.1.17', my_config["listen_port"]))
         server.listen(5)
+        round_number = 
         while True:
             conn, addr = server.accept()
             with conn:
@@ -105,11 +106,13 @@ def handle_connection():
                 if pi_id == 3:
                     if data[:5] == "token":
                         payload = data[5:]
-                        final_data = sense_and_marshall(payload)
-                        print("plot of final data goes here")
+                        #final_data = sense_and_marshall(payload)
+                        final_data = payload
+                        plot_data(final_data, round_number)
                         empty_data = json.dumps(sensor_data)
                         packet = "token" + empty_data
                         send_packet(packet)
+                        round_number += 1
                 else:
                     if data[:5] == "token":
                         payload = data[5:]
@@ -137,6 +140,44 @@ def send_packet(msg):
             print(e)
             time.sleep(1)
 
+def plot_data(sensor_data_,round_number):
+    """
+    Plot sensor data using matplotlib
+    """
+    print(sensor_data_)
+    data = json.loads(sensor_data_)
+    temps = data["temperature"]
+    hums = data["humidity"]
+    soil_moists = data["soil_moist"]
+    wind_speeds = data["wind_speed"]
+    print(("wind speed data: ", data["wind_speed"]))
+    graphs = [temps, hums,
+              soil_moists, wind_speeds]
+    x_vals = np.array(["Sec1", "Sec2", "Primary", "Avg"]) #1 is sec1, 2 is sec2,
+                                     #3 is primary and 4 is avg val
+    colors = np.array(["blue", "green", "yellow", "pink"])
+    titles = np.array(["Temperature", "Humidity",
+                       "Soil Moisture", "Wind Speed"])
+
+    fig, axs = plt.subplots(1,4,figsize=(16,12))
+    fig.suptitle(f"Raspberry Pi Sensor Data - Round {round_number}")
+    ind = 0
+    for dataset in graphs:
+        avg = 0
+        for val in dataset:
+            avg += val
+        avg = avg / len(dataset)
+        dataset.append(avg)
+        print(dataset)
+        y_vals = np.array(dataset)
+        ax = axs[ind]
+        ax.scatter(x_vals,y_vals,c=colors)
+        ax.set_title(titles[ind])
+        print(titles[ind])
+        ind = ind + 1
+
+    fname = f"polling-plot-{round_number}.png"
+    plt.savefig(fname)
 
 def start():
     threading.Thread(target=handle_connection, daemon=True).start()

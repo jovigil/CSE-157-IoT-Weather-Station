@@ -28,7 +28,7 @@ WIND_MAX = 32.4
 
 HOST = "169.233.1.9"
 MY_IP = "169.233.1.17"
-PORT = 65406  # Port to listen on 
+PORT = 65404  # Port to listen on 
 
 
 sensor_data = {
