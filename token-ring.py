@@ -28,18 +28,18 @@ WIND_MIN = 0.0
 WIND_MAX = 32.4
 
 sensor_data = {
-    "temperature":list(float()),
-    "humidity":list(float()),
-    "soil_temp":list(float()),
-    "soil_moist":list(float()),
-    "wind_speed":list(float())
+    "temperature":[0,0,0],
+    "humidity":[0,0,0],
+    "soil_temp":[0,0,0],
+    "soil_moist":[0,0,0],
+    "wind_speed":[0,0,0]
 }
 
 # Configuration for each Pi
 CONFIG = {
-    1: {"listen_port": 65517, "next_ip": "192.168.1.1", "next_port": 6553},
-    2: {"listen_port": 6551, "next_ip": "192.168.1.2", "next_port": 6553},
-    3: {"listen_port": 6553, "next_ip": "192.168.1.17", "next_port": 65517},
+    1: {"listen_port": 65430, "next_ip": "169.233.1.2", "next_port": 65430},
+    2: {"listen_port": 65432, "next_ip": "169.233.1.2", "next_port": 65432},
+    3: {"listen_port": 65432, "next_ip": "169.233.1.17", "next_port": 65432},
 }
 
 def read_wind_speed(voltage):
@@ -47,7 +47,8 @@ def read_wind_speed(voltage):
     return map_range(voltage, V_MIN, V_MAX, WIND_MIN, WIND_MAX)
 
 
-pi_id = int(sys.argv[1])
+#pi_id = int(sys.argv[1])
+pi_id = 1
 my_config = CONFIG[pi_id]
 
 def sense_and_marshall(sensor_data_) -> str:
@@ -57,19 +58,19 @@ def sense_and_marshall(sensor_data_) -> str:
         # sht30
         temperature = sht30.temperature
         humidity = sht30.relative_humidity
-        sensor_data["temperature"][my_config-1] = temperature
-        sensor_data["humidity"][my_config-1] = humidity
+        sensor_data["temperature"][pi_id-1] = temperature
+        sensor_data["humidity"][pi_id-1] = humidity
 
         # stemma
         soil_moisture = soil_sensor.moisture_read()
         soil_temp = soil_sensor.get_temp()
-        sensor_data["soil_moist"][my_config-1] = soil_moisture
-        sensor_data["soil_temp"][my_config-1] = soil_temp
+        sensor_data["soil_moist"][pi_id-1] = soil_moisture
+        sensor_data["soil_temp"][pi_id-1] = soil_temp
 
         # adc/windspeed
         voltage = windspeed_channel.voltage
         wind_speed = read_wind_speed(voltage)
-        sensor_data["wind_speed"][my_config-1] = wind_speed
+        sensor_data["wind_speed"][pi_id-1] = wind_speed
 
         timestamp = datetime.datetime.now()
         log_entry = (
@@ -94,40 +95,46 @@ def sense_and_marshall(sensor_data_) -> str:
 def handle_connection():
     """Listen for incoming message and forward it."""
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
-        server.bind(('', my_config["listen_port"]))
-        server.listen(1)
+        server.bind(('169.233.1.17', my_config["listen_port"]))
+        server.listen(5)
         while True:
             conn, addr = server.accept()
             with conn:
                 data = conn.recv(1024).decode()
                 print(f"Received: {data}")
                 if pi_id == 3:
-                    if data[:4] == "token":
+                    if data[:5] == "token":
                         payload = data[5:]
-                        new_payload = sense_and_marshall(payload)
-                        print("plot goes here")
-                        packet = "token"
-                        send_packet(packet.encode())
+                        final_data = sense_and_marshall(payload)
+                        print("plot of final data goes here")
+                        empty_data = json.dumps(sensor_data)
+                        packet = "token" + empty_data
+                        send_packet(packet)
                 else:
-                    if data[:4] == "token":
+                    if data[:5] == "token":
                         payload = data[5:]
+                        print(payload)
                         new_payload = sense_and_marshall(payload)
                         time.sleep(1)
                         packet = "token" + new_payload
-                        send_packet(packet.encode())
+                        send_packet(packet)
 
 
 def send_packet(msg):
     """Send a token and sensor data to the next Pi."""
     while True:
+        print(my_config["next_ip"])
+        print(my_config["next_port"])
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
                 s.connect((my_config["next_ip"], my_config["next_port"]))
                 s.sendall(msg.encode())
                 print(f"Sent: {msg} to {my_config['next_ip']}")
+                s.close()
                 break
-        except ConnectionRefusedError:
-            print("Connection refused, retrying...")
+        except (ConnectionRefusedError, OSError) as e:
+            print("Connection failure:")
+            print(e)
             time.sleep(1)
 
 
@@ -138,9 +145,11 @@ def start():
     if pi_id == 1:
         global sensor_data
         time.sleep(5)  # Wait for others to be ready
-        payload = sense_and_marshall(sensor_data)
+        empty_data = json.dumps(sensor_data)
+        print(empty_data)
+        payload = sense_and_marshall(empty_data)
         packet = "token" + payload
-        send_packet(packet.encode())
+        send_packet(packet)
 
     # Keep the main thread alive
     while True:
