@@ -6,6 +6,7 @@ import datetime
 import board
 import busio
 import json
+import sys
 from adafruit_sht31d import SHT31D
 from adafruit_seesaw.seesaw import Seesaw
 from adafruit_ads1x15.analog_in import AnalogIn
@@ -27,7 +28,11 @@ WIND_MAX = 32.4
 
 
 HOST = "169.233.1.9"
-MY_IP = "169.233.1.17"
+
+user_ip = sys.argv[1]
+MY_IP = f"169.233.1.{user_ip}"
+print("User IP is " + MY_IP)
+
 PORT = 65404  # Port to listen on 
 
 
@@ -90,6 +95,7 @@ async def main():
                 conn.send(json.dumps(sensor_data).encode())
         except (socket.timeout, ConnectionResetError, BrokenPipeError, OSError) as e:
             print(f"Error: {e}, reconnecting...")
+            start()
             s.listen()
             s.settimeout(3)
 
