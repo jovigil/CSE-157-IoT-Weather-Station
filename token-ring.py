@@ -44,7 +44,6 @@ CONFIG = {
     2: {"previous_ip" : "169.233.1.17", "this_ip": "169.233.1.2","next_ip": "169.233.1.9"},
     3: {"previous_ip" : "169.233.1.2", "this_ip": "169.233.1.9","next_ip": "169.233.1.17"},
 }
-NETWORK = set()
 
 pi_id = int(sys.argv[1])
 my_config = CONFIG[pi_id].copy()
@@ -53,8 +52,7 @@ def reconfigure():
     """Change next_ip to pi_id + 1's next_ip in the case
     of host dropout."""
     global my_config
-    global CONFIG
-    new_next_ip = CONFIG[pi_id + 1]["next_ip"]
+    new_next_ip = CONFIG[pi_id % 3 + 1]["next_ip"]
     my_config["next_ip"] = new_next_ip
     
 def read_wind_speed(voltage):
@@ -62,8 +60,11 @@ def read_wind_speed(voltage):
     return map_range(voltage, V_MIN, V_MAX, WIND_MIN, WIND_MAX)
 
 def sense_and_marshall(sensor_data_, reset=False) -> str:
+    global my_config
+    
+    
     sensor_data = json.loads(sensor_data_)
-
+    print(sensor_data)
     try:
         # sht30
         temperature = sht30.temperature
@@ -84,7 +85,9 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
 
 
         if sensor_data["RESET"] == 1:
+            print("RESET RECIEVED")
             my_config = CONFIG[pi_id]
+            print(my_config)
 
         if reset:
             sensor_data["RESET"] = 1
@@ -124,7 +127,6 @@ def handle_connection():
             RESET = False
             try:
                 conn, addr = server.accept()
-                NETWORK.add(addr[0])
                 print(addr[0], last_addr)
                 if addr[0] == my_config["previous_ip"] and last_addr != my_config["previous_ip"]:
                     my_config = CONFIG[pi_id]
@@ -137,6 +139,7 @@ def handle_connection():
                     if pi_id == 3:
                         if data[:5] == "token":
                             payload = data[5:]
+                            print(payload)
                             final_data = sense_and_marshall(payload)
                         # final_data = payload
                             plot_data(final_data, round_number)
@@ -177,7 +180,6 @@ def send_packet(msg):
         except (ConnectionRefusedError, OSError) as e:
             retries += 1
             if retries >= 10:
-                NETWORK.remove(my_config["next_ip"])
                 reconfigure()
             print("Connection failure:")
             print(e)

@@ -10,7 +10,11 @@ import simpleio
 import matplotlib.pyplot as plt
 import numpy as np
 import json
-
+from adafruit_sht31d import SHT31D
+from adafruit_seesaw.seesaw import Seesaw
+from adafruit_ads1x15.analog_in import AnalogIn
+import adafruit_ads1x15.ads1015 as ADS
+from simpleio import map_range
 
 sensor_data = {
     "temperature":[],
@@ -115,15 +119,54 @@ async def main():
             get_pi_readings()
     )
 
+
+i2c = busio.I2C(board.SCL, board.SDA)
+
+sht30 = SHT31D(i2c)
+soil_sensor = Seesaw(i2c, addr=0x36)
+ads = ADS.ADS1015(i2c)
+windspeed_channel = AnalogIn(ads, ADS.P0)
+
+V_MIN = 0.4
+V_MAX = 2.0
+WIND_MIN = 0.0
+WIND_MAX = 32.4
+
+
+def read_wind_speed(voltage):
+    voltage = max(min(voltage, V_MAX), V_MIN)
+    return map_range(voltage, V_MIN, V_MAX, WIND_MIN, WIND_MAX)
+
+
+def read_sht30():
+    temperature = sht30.temperature
+    humidity = sht30.relative_humidity
+    sensor_data["temperature"].append(temperature)
+    sensor_data["humidity"].append(humidity)
+
+def read_stemma():
+    soil_moisture = soil_sensor.moisture_read()
+    soil_temp = soil_sensor.get_temp()
+    sensor_data["soil_moist"].append(soil_moisture)
+    sensor_data["soil_temp"].append(soil_temp)
+        
+def read_adc():
+    voltage = windspeed_channel.voltage
+    wind_speed = read_wind_speed(voltage)
+    sensor_data["wind_speed"].append(wind_speed)
+
+
+
 def plot_data(round_number):
     """
     Plot sensor data using matplotlib
     """
-    for key in sensor_data:
-        sensor_data[key].append(5)
 
     print(sensor_data)
     data = sensor_data #json.loads(sensor_data)
+    read_sht30()
+    read_stemma()
+    read_adc()
     temps = data["temperature"]
     hums = data["humidity"]
     soil_moists = data["soil_moist"]
