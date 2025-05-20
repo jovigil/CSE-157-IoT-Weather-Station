@@ -11,8 +11,9 @@ from adafruit_seesaw.seesaw import Seesaw
 from adafruit_ads1x15.analog_in import AnalogIn
 import adafruit_ads1x15.ads1015 as ADS
 from simpleio import map_range
-
-
+import numpy as np
+import matplotlib.pyplot as plt
+import copy
 i2c = busio.I2C(board.SCL, board.SDA)
 
 sht30 = SHT31D(i2c)
@@ -36,16 +37,17 @@ sensor_data = {
     "RESET":0
 }
 
+PORT = 65432
 # Configuration for each Pi
 CONFIG = {
-    1: {"listen_port": 65432, "this_ip": "169.233.1.17","next_ip": "169.233.1.2", "next_port": 65432},
-    2: {"listen_port": 65432, "this_ip": "169.233.1.2","next_ip": "169.233.1.9", "next_port": 65432},
-    3: {"listen_port": 65432, "this_ip": "169.233.1.9","next_ip": "169.233.1.17", "next_port": 65432},
+    1: {"previous_ip" : "169.233.1.9", "this_ip": "169.233.1.17","next_ip": "169.233.1.2"},
+    2: {"previous_ip" : "169.233.1.17", "this_ip": "169.233.1.2","next_ip": "169.233.1.9"},
+    3: {"previous_ip" : "169.233.1.2", "this_ip": "169.233.1.9","next_ip": "169.233.1.17"},
 }
 NETWORK = set()
 
 pi_id = int(sys.argv[1])
-my_config = CONFIG[pi_id]
+my_config = CONFIG[pi_id].copy()
 
 def reconfigure():
     """Change next_ip to pi_id + 1's next_ip in the case
@@ -59,7 +61,7 @@ def read_wind_speed(voltage):
     voltage = max(min(voltage, V_MAX), V_MIN)
     return map_range(voltage, V_MIN, V_MAX, WIND_MIN, WIND_MAX)
 
-def sense_and_marshall(sensor_data_, reset=false) -> str:
+def sense_and_marshall(sensor_data_, reset=False) -> str:
     sensor_data = json.loads(sensor_data_)
 
     try:
@@ -79,6 +81,10 @@ def sense_and_marshall(sensor_data_, reset=false) -> str:
         voltage = windspeed_channel.voltage
         wind_speed = read_wind_speed(voltage)
         sensor_data["wind_speed"][pi_id-1] = wind_speed
+
+
+        if sensor_data["RESET"] == 1:
+            my_config = CONFIG[pi_id]
 
         if reset:
             sensor_data["RESET"] = 1
@@ -109,51 +115,63 @@ def handle_connection():
     """Listen for incoming message and forward it."""
     global my_config
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
-        server.bind((my_config["this_ip"], my_config["listen_port"]))
+        server.bind((my_config["this_ip"], PORT))
         server.listen(5)
+        server.settimeout(10)
         round_number = 0
+        last_addr = my_config["previous_ip"]
         while True:
-            RESET = false
-            conn, addr = server.accept()
-            NETWORK.add(addr[0])
-            if len(NETWORK) == 3:
-                my_config = CONFIG[pi_id]
-                RESET = true
-            with conn:
-                data = conn.recv(1024).decode()
-                print(f"Received: {data}")
-                if pi_id == 3:
-                    if data[:5] == "token":
-                        payload = data[5:]
-                        #final_data = sense_and_marshall(payload)
-                        final_data = payload
-                        plot_data(final_data, round_number)
-                        empty_data = json.dumps(sensor_data)
-                        if RESET:
-                            empty_data["RESET"] = 1
-                        packet = "token" + empty_data
-                        send_packet(packet)
-                        round_number += 1
-                else:
-                    if data[:5] == "token":
-                        payload = data[5:]
-                        new_payload = sense_and_marshall(payload,
-                                                         reset=RESET)
-                        time.sleep(1)
-                        packet = "token" + new_payload
-                        send_packet(packet)
+            RESET = False
+            try:
+                conn, addr = server.accept()
+                NETWORK.add(addr[0])
+                print(addr[0], last_addr)
+                if addr[0] == my_config["previous_ip"] and last_addr != my_config["previous_ip"]:
+                    my_config = CONFIG[pi_id]
+                    RESET = True
+                    print("IN RESET TO TRUE IF STATEMENT")
+                last_addr = addr[0]
+                with conn:
+                    data = conn.recv(1024).decode()
+                    # print(f"Received: {data}")
+                    if pi_id == 3:
+                        if data[:5] == "token":
+                            payload = data[5:]
+                            final_data = sense_and_marshall(payload)
+                        # final_data = payload
+                            plot_data(final_data, round_number)
+                            if RESET:
+                                sensor_data["RESET"] = 1
+                            empty_data = json.dumps(sensor_data)
+                            sensor_data["RESET"] = 0
+                            packet = "token" + empty_data
+                            send_packet(packet)
+                            round_number += 1
+                    else:
+                        if data[:5] == "token":
+                            payload = data[5:]
+                            new_payload = sense_and_marshall(payload,
+                                                            reset=RESET)
+                            time.sleep(1)
+                            packet = "token" + new_payload
+                            send_packet(packet)
+            except socket.timeout:
+                print("Timeout occurred while listening. Sending packet downstream...")
+                empty_data = json.dumps(sensor_data)
+                packet = "token" + empty_data
+                send_packet(packet)
+
 
 def send_packet(msg):
     """Send a token and sensor data to the next Pi."""
     retries = 0
     while True:
         print(my_config["next_ip"])
-        print(my_config["next_port"])
         try:
             with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-                s.connect((my_config["next_ip"], my_config["next_port"]))
+                s.connect((my_config["next_ip"], PORT))
                 s.sendall(msg.encode())
-                print(f"Sent: {msg} to {my_config['next_ip']}")
+             #   print(f"Sent: {msg} to {my_config['next_ip']}")
                 s.close()
                 break
         except (ConnectionRefusedError, OSError) as e:
@@ -169,16 +187,16 @@ def plot_data(sensor_data_,round_number):
     """
     Plot sensor data using matplotlib
     """
-    print(sensor_data_)
+    # print(sensor_data_)
     data = json.loads(sensor_data_)
     temps = data["temperature"]
     hums = data["humidity"]
     soil_moists = data["soil_moist"]
     wind_speeds = data["wind_speed"]
-    print(("wind speed data: ", data["wind_speed"]))
+    # print(("wind speed data: ", data["wind_speed"]))
     graphs = [temps, hums,
               soil_moists, wind_speeds]
-    x_vals = np.array(["Sec1", "Sec2", "Primary", "Avg"]) #1 is sec1, 2 is sec2,
+    x_vals = np.array(["Pi 1", "Pi 2", "Pi 3", "Avg"]) #1 is sec1, 2 is sec2,
                                      #3 is primary and 4 is avg val
     colors = np.array(["blue", "green", "yellow", "pink"])
     titles = np.array(["Temperature", "Humidity",
@@ -193,12 +211,12 @@ def plot_data(sensor_data_,round_number):
             avg += val
         avg = avg / len(dataset)
         dataset.append(avg)
-        print(dataset)
+        # print(dataset)
         y_vals = np.array(dataset)
         ax = axs[ind]
         ax.scatter(x_vals,y_vals,c=colors)
         ax.set_title(titles[ind])
-        print(titles[ind])
+        # print(titles[ind])
         ind = ind + 1
 
     fname = f"polling-plot-{round_number}.png"
