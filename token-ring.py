@@ -32,26 +32,34 @@ sensor_data = {
     "humidity":[0,0,0],
     "soil_temp":[0,0,0],
     "soil_moist":[0,0,0],
-    "wind_speed":[0,0,0]
+    "wind_speed":[0,0,0],
+    "RESET":0
 }
 
 # Configuration for each Pi
 CONFIG = {
-    1: {"listen_port": 65432, "next_ip": "169.233.1.2", "next_port": 65432},
-    2: {"listen_port": 65432, "next_ip": "169.233.1.9", "next_port": 65432},
-    3: {"listen_port": 65432, "next_ip": "169.233.1.17", "next_port": 65432},
+    1: {"listen_port": 65432, "this_ip": "169.233.1.17","next_ip": "169.233.1.2", "next_port": 65432},
+    2: {"listen_port": 65432, "this_ip": "169.233.1.2","next_ip": "169.233.1.9", "next_port": 65432},
+    3: {"listen_port": 65432, "this_ip": "169.233.1.9","next_ip": "169.233.1.17", "next_port": 65432},
 }
+NETWORK = set()
 
+pi_id = int(sys.argv[1])
+my_config = CONFIG[pi_id]
+
+def reconfigure():
+    """Change next_ip to pi_id + 1's next_ip in the case
+    of host dropout."""
+    global my_config
+    global CONFIG
+    new_next_ip = CONFIG[pi_id + 1]["next_ip"]
+    my_config["next_ip"] = new_next_ip
+    
 def read_wind_speed(voltage):
     voltage = max(min(voltage, V_MAX), V_MIN)
     return map_range(voltage, V_MIN, V_MAX, WIND_MIN, WIND_MAX)
 
-
-#pi_id = int(sys.argv[1])
-pi_id = 1
-my_config = CONFIG[pi_id]
-
-def sense_and_marshall(sensor_data_) -> str:
+def sense_and_marshall(sensor_data_, reset=false) -> str:
     sensor_data = json.loads(sensor_data_)
 
     try:
@@ -71,6 +79,11 @@ def sense_and_marshall(sensor_data_) -> str:
         voltage = windspeed_channel.voltage
         wind_speed = read_wind_speed(voltage)
         sensor_data["wind_speed"][pi_id-1] = wind_speed
+
+        if reset:
+            sensor_data["RESET"] = 1
+        else:
+            sensor_data["RESET"] = 0
 
         timestamp = datetime.datetime.now()
         log_entry = (
@@ -94,12 +107,18 @@ def sense_and_marshall(sensor_data_) -> str:
 
 def handle_connection():
     """Listen for incoming message and forward it."""
+    global my_config
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
-        server.bind(('169.233.1.17', my_config["listen_port"]))
+        server.bind((my_config["this_ip"], my_config["listen_port"]))
         server.listen(5)
-        round_number = 
+        round_number = 0
         while True:
+            RESET = false
             conn, addr = server.accept()
+            NETWORK.add(addr[0])
+            if len(NETWORK) == 3:
+                my_config = CONFIG[pi_id]
+                RESET = true
             with conn:
                 data = conn.recv(1024).decode()
                 print(f"Received: {data}")
@@ -110,21 +129,23 @@ def handle_connection():
                         final_data = payload
                         plot_data(final_data, round_number)
                         empty_data = json.dumps(sensor_data)
+                        if RESET:
+                            empty_data["RESET"] = 1
                         packet = "token" + empty_data
                         send_packet(packet)
                         round_number += 1
                 else:
                     if data[:5] == "token":
                         payload = data[5:]
-                        print(payload)
-                        new_payload = sense_and_marshall(payload)
+                        new_payload = sense_and_marshall(payload,
+                                                         reset=RESET)
                         time.sleep(1)
                         packet = "token" + new_payload
                         send_packet(packet)
 
-
 def send_packet(msg):
     """Send a token and sensor data to the next Pi."""
+    retries = 0
     while True:
         print(my_config["next_ip"])
         print(my_config["next_port"])
@@ -136,6 +157,10 @@ def send_packet(msg):
                 s.close()
                 break
         except (ConnectionRefusedError, OSError) as e:
+            retries += 1
+            if retries >= 10:
+                NETWORK.remove(my_config["next_ip"])
+                reconfigure()
             print("Connection failure:")
             print(e)
             time.sleep(1)
