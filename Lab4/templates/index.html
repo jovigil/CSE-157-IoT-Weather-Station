@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sensor Plots</title>
+    <style>
+        img {
+            width: 45%;
+            margin: 2%;
+            border: 1px solid #ccc;
+        }
+        body {
+            text-align: center;
+            font-family: sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Sensor Readings</h1>
+    {% for plot in plots %}
+        <img src="{{ url_for('static', filename=plot) }}" alt="{{ plot }}">
+    {% endfor %}
+</body>
+</html>
