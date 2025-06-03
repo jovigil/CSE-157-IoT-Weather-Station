@@ -6,6 +6,7 @@ import datetime
 import board
 import busio
 import json
+import mysql.connector
 from adafruit_sht31d import SHT31D
 from adafruit_seesaw.seesaw import Seesaw
 from adafruit_ads1x15.analog_in import AnalogIn
@@ -28,14 +29,26 @@ V_MAX = 2.0
 WIND_MIN = 0.0
 WIND_MAX = 32.4
 
+DB_CONNECTOR = 3 # pi that sends data to XAMPP server's id
+
+cnx = mysql.connector.connect(user='root', password='',
+                              host='127.0.0.1',
+                              database='piSenseDB')
+
 sensor_data = {
     "temperature":[0,0,0],
     "humidity":[0,0,0],
     "soil_temp":[0,0,0],
     "soil_moist":[0,0,0],
     "wind_speed":[0,0,0],
-    "RESET":0
+    "RESET":0,
+    "DB_CONNECTOR":DB_CONNECTOR
 }
+
+sensor_data_fields = ["temperature",
+                      "humidity",
+                      "soil_moist",
+                      "wind_speed"]
 
 PORT = 65432
 # Configuration for each Pi
@@ -52,8 +65,11 @@ def reconfigure():
     """Change next_ip to pi_id + 1's next_ip in the case
     of host dropout."""
     global my_config
+    global DB_CONNECTOR
     new_next_ip = CONFIG[pi_id % 3 + 1]["next_ip"]
     my_config["next_ip"] = new_next_ip
+    DB_CONNECTOR = pi_id
+
     
 def read_wind_speed(voltage):
     voltage = max(min(voltage, V_MAX), V_MIN)
@@ -61,7 +77,7 @@ def read_wind_speed(voltage):
 
 def sense_and_marshall(sensor_data_, reset=False) -> str:
     global my_config
-    
+    global DB_CONNECTOR
     
     sensor_data = json.loads(sensor_data_)
     print(sensor_data)
@@ -83,6 +99,8 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
         wind_speed = read_wind_speed(voltage)
         sensor_data["wind_speed"][pi_id-1] = wind_speed
 
+        if sensor_data["DB_CONNECTOR"] == pi_id:
+            write_to_db(sensor_data)
 
         if sensor_data["RESET"] == 1:
             print("RESET RECIEVED")
@@ -91,6 +109,8 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
 
         if reset:
             sensor_data["RESET"] = 1
+            DB_CONNECTOR = 3
+            sensor_data["DB_CONNECTOR"] = DB_CONNECTOR
         else:
             sensor_data["RESET"] = 0
 
@@ -184,6 +204,14 @@ def send_packet(msg):
             print("Connection failure:")
             print(e)
             time.sleep(1)
+
+def write_to_db(sensor_data):
+    for field in sensor_data_fields:
+        with cnx.cursor() as cursor:
+            for i in range(len(sensor_data[field])):
+                table = f"sensor_redings{i+1}"
+                cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", field)
+    cnx.commit()
 
 def plot_data(sensor_data_,round_number):
     """

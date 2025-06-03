@@ -108,6 +108,7 @@ async def get_pi_readings():
             if len(CLIENTS) >= 2:
                 round_number += 1
                 plot_data(round_number)
+                write_to_db()
                 print(f"Round {round_number} complete     plotting data...")
             for entry in sensor_data.values():
                 entry.clear()
