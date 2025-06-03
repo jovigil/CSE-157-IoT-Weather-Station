@@ -103,12 +103,15 @@ async def get_pi_readings():
                 logger_client.info(f"Error: {e}, on port {PORT}")
                 c.close()
                 CLIENTS.remove(CLIENT)
+
+        sense()
+        write_to_db() # at least write own data if other pis drop
+
         if CLIENTS:
             #I think here we might need to also plot the sensor data of the primary pi
             if len(CLIENTS) >= 2:
                 round_number += 1
                 plot_data(round_number)
-                write_to_db()
                 print(f"Round {round_number} complete     plotting data...")
             for entry in sensor_data.values():
                 entry.clear()
@@ -167,20 +170,21 @@ def write_to_db():
                 cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", field)
     cnx.commit()
 
+def sense():
+    read_sht30()
+    read_stemma()
+    read_adc()
+
 def plot_data(round_number):
     """
     Plot sensor data using matplotlib
     """
-
-    print(sensor_data)
-    data = sensor_data #json.loads(sensor_data)
-    read_sht30()
-    read_stemma()
-    read_adc()
+    data = sensor_data
     temps = data["temperature"]
     hums = data["humidity"]
     soil_moists = data["soil_moist"]
     wind_speeds = data["wind_speed"]
+    print(sensor_data)
     print(("wind speed data: ", data["wind_speed"]))
     graphs = [temps, hums,
               soil_moists, wind_speeds]
