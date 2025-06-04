@@ -13,12 +13,48 @@
             text-align: center;
             font-family: sans-serif;
         }
+        form {
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body>
     <h1>Sensor Readings</h1>
+
+    <!-- Configuration Update Form -->
+    <form id="configForm">
+        <label for="poll_delay">Set Poll Delay (seconds):</label>
+        <input type="number" id="poll_delay" name="poll_delay" min="1" required>
+        <button type="submit">Update</button>
+    </form>
+
+    <div id="statusMessage"></div>
+
     {% for plot in plots %}
         <img src="{{ url_for('static', filename=plot) }}" alt="{{ plot }}">
     {% endfor %}
+
+    <script>
+        document.getElementById("configForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            const delay = document.getElementById("poll_delay").value;
+
+            fetch("/update_config", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({ POLL_DELAY: parseInt(delay) })
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("statusMessage").innerText = data.message;
+            })
+            .catch(error => {
+                document.getElementById("statusMessage").innerText = "Error: " + error;
+            });
+        });
+    </script>
 </body>
 </html>

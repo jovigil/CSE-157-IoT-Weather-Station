@@ -18,6 +18,31 @@ def get_sensor_data(sql_connection, table_name):
         sensor_data = cursor.fetchall()
     return sensor_data
 
+
+def update_config(POLL_DELAY):
+    with mysql.connector.connect(user='root', password='',
+                              host='127.0.0.1',
+                              database='piSenseDB') as sql_connection:
+        with sql_connection.cursor() as cursor:
+            cursor.execute("SELECT NUM_CONNECTIONS FROM Admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+            result = cursor.fetchone()
+            if result:
+                num_connections = result[0]
+            else:
+                exit(2)
+            new_secondary_timeout = num_connections * POLL_DELAY 
+            new_token_timeout = num_connections * POLL_DELAY
+
+            cursor.execute("""
+    INSERT INTO Admin (ADMIN, PASSWORD, NUM_CONNECTIONS, POLL_DELAY, PRIMARY_TIMEOUT, SECONDARY_TIMEOUT, TOKEN_TIMEOUT, USER)
+    SELECT ADMIN, PASSWORD, NUM_CONNECTIONS, %s, PRIMARY_TIMEOUT, %s, %s, %s
+    FROM Admin
+    ORDER BY ID DESC
+    LIMIT 1;""", (POLL_DELAY, new_secondary_timeout, new_token_timeout, 'Server'))
+        sql_connection.commit()
+            
+        
+
 def plot_data():
     """
     Plot sensor data using matplotlib
@@ -84,6 +109,16 @@ def return_home():
     return render_template('index.html', plots=plots)
 
 
+@app.route("/update_config", methods=['POST', 'GET'])
+def update_config_route():
+    try:
+        data = request.get_json()
+        POLL_DELAY = data.get('POLL_DELAY', 5)  # Default to 5 seconds if not provided
+        update_config(POLL_DELAY)
+        return jsonify({"status": "success", "message": "Configuration updated successfully."}), 200
+    except Exception as e:
+        return jsonify({"status": "error", "message": str(e)}), 500
+    
 
 if __name__ == "__main__":
     app.run(debug=True, port=5006)
