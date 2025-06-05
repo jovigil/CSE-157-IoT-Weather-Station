@@ -12,6 +12,31 @@ from adafruit_seesaw.seesaw import Seesaw
 from adafruit_ads1x15.analog_in import AnalogIn
 import adafruit_ads1x15.ads1015 as ADS
 from simpleio import map_range
+import mysql.connector
+
+
+
+cnx = mysql.connector.connect(user='root', password='',
+                              host='172.20.10.2',
+                              database='piSenseDB')
+
+config = {
+    'TIMEOUT_INT': 3
+}
+
+
+def check_config():
+    print("Checking config...")
+    with cnx.cursor() as cursor:
+        cursor.execute("SELECT SECONDARY_TIMEOUT FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        result = cursor.fetchone()
+        print(result)
+        if result:
+            config['TIMEOUT_INT'] = result[0]
+        else:
+            print("No TIMEOUT found, using default values.")
+    cnx.commit()
+
 
 
 i2c = busio.I2C(board.SCL, board.SDA)
@@ -27,10 +52,10 @@ WIND_MIN = 0.0
 WIND_MAX = 32.4
 
 
-HOST = "169.233.1.9"
+HOST = "172.20.10.13"
 
 user_ip = sys.argv[1]
-MY_IP = f"169.233.1.{user_ip}"
+MY_IP = f"172.20.10.{user_ip}"
 print("User IP is " + MY_IP)
 
 PORT = 65404  # Port to listen on 
@@ -80,9 +105,11 @@ async def main():
     global PORT
     s.bind((MY_IP, PORT))
     s.listen()
-    s.settimeout(5)
     i = 0
     while True:
+        check_config()
+        print(config['TIMEOUT_INT'])
+        s.settimeout(config['TIMEOUT_INT'])
         i += 1
         try:
             conn, addr = s.accept()
@@ -97,7 +124,6 @@ async def main():
             print(f"Error: {e}, reconnecting...")
             start()
             s.listen()
-            s.settimeout(3)
 
 if __name__ == "__main__":
     # We will use a try/except block to catch the KeyboardInterrupt.
