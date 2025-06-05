@@ -53,9 +53,9 @@ sensor_data_fields = ["temperature",
 PORT = 65432
 # Configuration for each Pi
 CONFIG = {
-    1: {"previous_ip" : "169.233.1.9", "this_ip": "169.233.1.17","next_ip": "169.233.1.2"},
-    2: {"previous_ip" : "169.233.1.17", "this_ip": "169.233.1.2","next_ip": "169.233.1.9"},
-    3: {"previous_ip" : "169.233.1.2", "this_ip": "169.233.1.9","next_ip": "169.233.1.17"},
+    1: {"previous_ip" : "172.20.10.13", "this_ip": "172.20.10.11","next_ip": "172.20.10.3"},
+    2: {"previous_ip" : "172.20.10.11", "this_ip": "172.20.10.3","next_ip": "172.20.10.13"},
+    3: {"previous_ip" : "172.20.10.3", "this_ip": "172.20.10.13","next_ip": "172.20.10.11"},
 }
 
 pi_id = int(sys.argv[1])
@@ -205,12 +205,14 @@ def send_packet(msg):
             print(e)
             time.sleep(1)
 
-def write_to_db(sensor_data):
-    for field in sensor_data_fields:
+def write_to_db():
+    for i in range(len(CLIENTS)):
+        pis_readings = []
+        for value in sensor_data.items():
+            pis_readings.append(value[i])
         with cnx.cursor() as cursor:
-            for i in range(len(sensor_data[field])):
-                table = f"sensor_redings{i+1}"
-                cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", field)
+            table = f"sensor_readings{i+1}"
+            cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", pis_readings)
     cnx.commit()
 
 def plot_data(sensor_data_,round_number):
