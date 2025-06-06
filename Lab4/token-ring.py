@@ -174,23 +174,24 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
         voltage = windspeed_channel.voltage
         wind_speed = read_wind_speed(voltage)
         sensor_data["wind_speed"][pi_id-1] = wind_speed
+        
+        if sensor_data["RESET"] == 1:
+            print("RESET RECIEVED")
+            DB_CONNECTOR = 3
+            my_config = CONFIG[pi_id].copy()
+            print(my_config)
+
+        if reset:
+            sensor_data["RESET"] = 1
+            sensor_data["DB_CONNECTOR"] = DB_CONNECTOR
+        else:
+            sensor_data["RESET"] = 0
 
         if DB_CONNECTOR == pi_id:
             print("Writing to DB")
             print(sensor_data)
             write_to_db(sensor_data)
 
-        if sensor_data["RESET"] == 1:
-            print("RESET RECIEVED")
-            my_config = CONFIG[pi_id].copy()
-            print(my_config)
-
-        if reset:
-            sensor_data["RESET"] = 1
-            DB_CONNECTOR = 3
-            sensor_data["DB_CONNECTOR"] = DB_CONNECTOR
-        else:
-            sensor_data["RESET"] = 0
 
         timestamp = datetime.now()
         log_entry = (
