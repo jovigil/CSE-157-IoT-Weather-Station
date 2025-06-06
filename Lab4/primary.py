@@ -18,10 +18,54 @@ import adafruit_ads1x15.ads1015 as ADS
 from simpleio import map_range
 
 cnx = mysql.connector.connect(user='root', password='',
-                              host='127.0.0.1',
+                              host='172.20.10.2',
                               database='piSenseDB')
 
+
+
+
+config = {
+    'POLL_DELAY': 1,
+    'TIMEOUT_INT': 3
+}
+
+CLIENTS = set()
+
+def check_config():
+    with cnx.cursor() as cursor:
+        cursor.execute("SELECT POLL_DELAY FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        result = cursor.fetchone()
+        if result:
+            config['POLL_DELAY'] = result[0]
+        else:
+            print("No POLL_DELAY found, using default values.")
+        
+        cursor.execute("SELECT PRIMARY_TIMEOUT FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        result = cursor.fetchone()
+        if result:
+            config['TIMEOUT_INT'] = result[0]
+        else:
+            print("No TIMEOUT found, using default values.")
+        cursor.execute("SELECT NUM_CONNECTIONS FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        result = cursor.fetchone()
+        if result[0] != len(CLIENTS) + 1:
+            print(f"Updating NUM_CONNECTIONS from {result[0]} to {len(CLIENTS) + 1}")
+            cursor.execute("""
+    INSERT INTO Admin (ADMIN, PASSWORD, NUM_CONNECTIONS, POLL_DELAY, PRIMARY_TIMEOUT, SECONDARY_TIMEOUT, TOKEN_TIMEOUT, USER)
+    SELECT ADMIN, PASSWORD, %s, POLL_DELAY, PRIMARY_TIMEOUT, SECONDARY_TIMEOUT, TOKEN_TIMEOUT, %s
+    FROM Admin
+    ORDER BY ID DESC
+    LIMIT 1;
+""", (len(CLIENTS) + 1, 'Primary'))
+
+
+    cnx.commit()
+
+
+
+print("conected")
 sensor_data = {
+    "timestamp":[],
     "temperature":[],
     "humidity":[],
     "soil_moist":[],
@@ -30,6 +74,7 @@ sensor_data = {
 
 def compile_sensor_data(data_):
     data = json.loads(data_)
+    data["timestamp"] = datetime.now()
     for key in sensor_data:
         sensor_data[key].append(data[key])
 
@@ -47,15 +92,14 @@ logger_server.addHandler(file_handler)
 logger_client.addHandler(file_handler)
 
 
-HOST = "169.233.1.9" 
+HOST = "172.20.10.13" 
 PORT = 65404  # Port to listen on 
 
-
-CLIENTS = set()
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.settimeout(1)
 s.bind((HOST, PORT))
-
+from datetime import datetime
+import time
 async def server():
     global CLIENTS
     global s
@@ -88,9 +132,10 @@ async def get_pi_readings():
     global PORT
     round_number = 0
     while True:
+        check_config()
         for CLIENT in list(CLIENTS):
             c = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            c.settimeout(2)
+            c.settimeout(config['TIMEOUT_INT'])
             try:
                 print(CLIENT)
                 c.connect((CLIENT, PORT))
@@ -99,6 +144,7 @@ async def get_pi_readings():
                 print(data)
                 compile_sensor_data(data)
                 c.close()
+                time.sleep(config['POLL_DELAY'])  
             except (socket.timeout, ConnectionRefusedError) as e:
                 logger_client.info(f"Error: {e}, on port {PORT}")
                 c.close()
@@ -113,8 +159,8 @@ async def get_pi_readings():
                 round_number += 1
                 plot_data(round_number)
                 print(f"Round {round_number} complete     plotting data...")
-            for entry in sensor_data.values():
-                entry.clear()
+        for entry in sensor_data.values():
+            entry.clear()
         await asyncio.sleep(1)
 
 
@@ -163,14 +209,21 @@ def read_adc():
     sensor_data["wind_speed"].append(wind_speed)
 
 def write_to_db():
-    for field in sensor_data:
+    print(sensor_data)
+    for i in range(len(CLIENTS) + 1):
+        pis_readings = []
+        for value in sensor_data.values():
+            pis_readings.append(value[i])
+
+        print(pis_readings)
         with cnx.cursor() as cursor:
-            for i in range(len(CLIENTS)):
-                table = f"sensor_redings{i+1}"
-                cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", field)
+            table = f"sensor_readings{i+1}"
+            cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", pis_readings)
     cnx.commit()
 
+
 def sense():
+    sensor_data["timestamp"].append(datetime.now())
     read_sht30()
     read_stemma()
     read_adc()
