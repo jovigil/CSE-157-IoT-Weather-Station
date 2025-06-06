@@ -17,6 +17,7 @@ from adafruit_ads1x15.analog_in import AnalogIn
 import adafruit_ads1x15.ads1015 as ADS
 from simpleio import map_range
 
+
 cnx = mysql.connector.connect(user='root', password='',
                               host='172.20.10.2',
                               database='piSenseDB')
@@ -33,30 +34,30 @@ CLIENTS = set()
 
 def check_config():
     with cnx.cursor() as cursor:
-        cursor.execute("SELECT POLL_DELAY FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        cursor.execute("SELECT POLL_DELAY FROM PrimConfig WHERE ID = (SELECT MAX(ID) FROM PrimConfig)")
         result = cursor.fetchone()
         if result:
             config['POLL_DELAY'] = result[0]
         else:
             print("No POLL_DELAY found, using default values.")
         
-        cursor.execute("SELECT PRIMARY_TIMEOUT FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        cursor.execute("SELECT PRIMARY_TIMEOUT FROM PrimConfig WHERE ID = (SELECT MAX(ID) FROM PrimConfig)")
         result = cursor.fetchone()
         if result:
             config['TIMEOUT_INT'] = result[0]
         else:
             print("No TIMEOUT found, using default values.")
-        cursor.execute("SELECT NUM_CONNECTIONS FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        cursor.execute("SELECT NUM_CONNECTIONS FROM PrimConfig WHERE ID = (SELECT MAX(ID) FROM PrimConfig)")
         result = cursor.fetchone()
         if result[0] != len(CLIENTS) + 1:
             print(f"Updating NUM_CONNECTIONS from {result[0]} to {len(CLIENTS) + 1}")
             cursor.execute("""
-    INSERT INTO Admin (ADMIN, PASSWORD, NUM_CONNECTIONS, POLL_DELAY, PRIMARY_TIMEOUT, SECONDARY_TIMEOUT, TOKEN_TIMEOUT, USER)
-    SELECT ADMIN, PASSWORD, %s, POLL_DELAY, PRIMARY_TIMEOUT, SECONDARY_TIMEOUT, TOKEN_TIMEOUT, %s
-    FROM Admin
+    INSERT INTO PrimConfig (NUM_CONNECTIONS, POLL_DELAY, PRIMARY_TIMEOUT, SECONDARY_TIMEOUT, USER)
+    SELECT %s, POLL_DELAY, PRIMARY_TIMEOUT, %s * POLL_DELAY, %s
+    FROM PrimConfig
     ORDER BY ID DESC
     LIMIT 1;
-""", (len(CLIENTS) + 1, 'Primary'))
+""", (len(CLIENTS) + 1, len(CLIENTS) + 1,'Primary'))
 
 
     cnx.commit()
@@ -65,7 +66,6 @@ def check_config():
 
 print("conected")
 sensor_data = {
-    "timestamp":[],
     "temperature":[],
     "humidity":[],
     "soil_moist":[],
@@ -74,7 +74,6 @@ sensor_data = {
 
 def compile_sensor_data(data_):
     data = json.loads(data_)
-    data["timestamp"] = datetime.now()
     for key in sensor_data:
         sensor_data[key].append(data[key])
 
@@ -151,6 +150,7 @@ async def get_pi_readings():
                 CLIENTS.remove(CLIENT)
 
         sense()
+        sense()
         write_to_db() # at least write own data if other pis drop
 
         if CLIENTS:
@@ -210,8 +210,10 @@ def read_adc():
 
 def write_to_db():
     print(sensor_data)
-    for i in range(len(CLIENTS) + 1):
+    timestamp = datetime.now()
+    for i in range(len(sensor_data["wind_speed"])):
         pis_readings = []
+        pis_readings.append(timestamp)
         for value in sensor_data.values():
             pis_readings.append(value[i])
 
@@ -223,7 +225,6 @@ def write_to_db():
 
 
 def sense():
-    sensor_data["timestamp"].append(datetime.now())
     read_sht30()
     read_stemma()
     read_adc()
