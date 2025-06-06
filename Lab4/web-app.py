@@ -9,12 +9,32 @@ import matplotlib.pyplot as plt
 import numpy as np
 import json
 import os
+import requests
+import sys
 from collections import defaultdict
 
 
 app = Flask(__name__)
 app.secret_key = os.urandom(32)
 tables = ['sensor_readings1', 'sensor_readings2', 'sensor_readings3']
+
+
+def getWeather():
+    http_req_headers = {"User-Agent":"josette_lab1"}
+    endpoint = "https://api.weather.gov/gridpoints/MTR/90,69/forecast"
+    failure = False
+    try:
+        response = requests.get(endpoint, headers=http_req_headers)
+    except ConnectionError as err:
+        sys.stderr.write(f"Cannot connect to network: {err}\n")
+        #sys.exit(0)
+        failure = True
+    data_raw = response.json()
+    if failure:
+        report = "Cannot connect to api.weather.gov"
+    else:
+        report = data_raw["properties"]["periods"][0]["detailedForecast"]
+    return report
 
 def get_sensor_data(sql_connection, table_name):
     with sql_connection.cursor(dictionary=True) as cursor:
@@ -143,7 +163,7 @@ def plot_data():
 def return_home():
     plot_data()
     plots = [f for f in os.listdir("static") if os.path.isfile(os.path.join("static", f))]
-    return render_template('index.html', plots=plots)
+    return render_template('index.html', plots=plots, text=getWeather())
 
 
 @app.route("/login", methods=['POST'])
