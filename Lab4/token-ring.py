@@ -118,9 +118,9 @@ def reconfigure():
                               database='piSenseDB')
     global my_config
     global DB_CONNECTOR
-    sensor_data["DB_CONNECTOR"] = DB_CONNECTOR
     if CONFIG[pi_id]["next_ip"] != my_config["next_ip"]:
         print("Going back to original config")
+        DB_CONNECTOR = 3
         my_config = CONFIG[pi_id].copy()
         with cnx.cursor() as cursor:
             cursor.execute("""
