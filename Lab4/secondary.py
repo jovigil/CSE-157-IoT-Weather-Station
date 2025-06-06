@@ -64,19 +64,24 @@ PORT = 65404  # Port to listen on
 sensor_data = {
     "temperature":float(),
     "humidity":float(),
-    "soil_temp":float(),
     "soil_moist":float(),
     "wind_speed":float()
 }
 
 
 def start():
-    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    while(True):
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-    s.connect((HOST, PORT))
+            s.connect((HOST, PORT))
 
-    s.sendall(b"Hello, world")
-    s.close()
+            s.sendall(b"Hello, world")
+            s.close()
+            return
+        except socket.error as e:
+            print(f"Socket error: {e}")
+            time.sleep(1)
 
 def read_wind_speed(voltage):
     voltage = max(min(voltage, V_MAX), V_MIN)
@@ -90,9 +95,7 @@ def read_sht30():
 
 def read_stemma():
     soil_moisture = soil_sensor.moisture_read()
-    soil_temp = soil_sensor.get_temp()
     sensor_data["soil_moist"] = soil_moisture
-    sensor_data["soil_temp"] = soil_temp
         
 def read_adc():
     voltage = windspeed_channel.voltage

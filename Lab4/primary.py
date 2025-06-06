@@ -150,7 +150,6 @@ async def get_pi_readings():
                 CLIENTS.remove(CLIENT)
 
         sense()
-        sense()
         write_to_db() # at least write own data if other pis drop
 
         if CLIENTS:
@@ -220,7 +219,7 @@ def write_to_db():
         print(pis_readings)
         with cnx.cursor() as cursor:
             table = f"sensor_readings{i+1}"
-            cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", pis_readings)
+            cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity,`soil moisture`, windspeed) VALUES (%s, %s, %s, %s, %s)", pis_readings)
     cnx.commit()
 
 
