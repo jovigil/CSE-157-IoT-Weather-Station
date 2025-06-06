@@ -2,7 +2,6 @@ import socket
 import threading
 import time
 import sys
-import datetime
 import board
 import busio
 import json
@@ -15,6 +14,8 @@ from simpleio import map_range
 import numpy as np
 import matplotlib.pyplot as plt
 import copy
+from datetime import datetime
+import time
 i2c = busio.I2C(board.SCL, board.SDA)
 
 sht30 = SHT31D(i2c)
@@ -31,14 +32,10 @@ WIND_MAX = 32.4
 
 DB_CONNECTOR = 3 # pi that sends data to XAMPP server's id
 
-cnx = mysql.connector.connect(user='root', password='',
-                              host='127.0.0.1',
-                              database='piSenseDB')
 
 sensor_data = {
     "temperature":[0,0,0],
     "humidity":[0,0,0],
-    "soil_temp":[0,0,0],
     "soil_moist":[0,0,0],
     "wind_speed":[0,0,0],
     "RESET":0,
@@ -53,24 +50,104 @@ sensor_data_fields = ["temperature",
 PORT = 65432
 # Configuration for each Pi
 CONFIG = {
-    1: {"previous_ip" : "172.20.10.13", "this_ip": "172.20.10.11","next_ip": "172.20.10.3"},
-    2: {"previous_ip" : "172.20.10.11", "this_ip": "172.20.10.3","next_ip": "172.20.10.13"},
-    3: {"previous_ip" : "172.20.10.3", "this_ip": "172.20.10.13","next_ip": "172.20.10.11"},
+    1: {
+        "previous_ip": "172.20.10.13",
+        "this_ip": "172.20.10.11",
+        "next_ip": "172.20.10.3",
+        "CONN_ATTEMPTS": 10,
+        "POLL_DELAY": 1,
+        "TIMEOUT_INT": 5,
+    },
+    2: {
+        "previous_ip": "172.20.10.11",
+        "this_ip": "172.20.10.3",
+        "next_ip": "172.20.10.13",
+        "CONN_ATTEMPTS": 10,
+        "POLL_DELAY": 1,
+        "TIMEOUT_INT": 5,
+    },
+    3: {
+        "previous_ip": "172.20.10.3",
+        "this_ip": "172.20.10.13",
+        "next_ip": "172.20.10.11",
+        "CONN_ATTEMPTS": 10,
+        "POLL_DELAY": 1,
+        "TIMEOUT_INT": 5,
+    },
 }
+
+
 
 pi_id = int(sys.argv[1])
 my_config = CONFIG[pi_id].copy()
 
+
+def check_db_config():
+    cnx = mysql.connector.connect(user='root', password='',
+                              host='172.20.10.2',
+                              database='piSenseDB')
+    with cnx.cursor() as cursor:
+        cursor.execute("SELECT POLLDELAY, Timeout, CONNATTEMPTS FROM TokenConfig WHERE ID = (SELECT MAX(ID) FROM TokenConfig)")
+        result = cursor.fetchone()
+        if result:
+            my_config['POLL_DELAY'] = result[0]
+        else:
+            my_config['POLL_DELAY'] = 2
+            print("No POLL_DELAY found, using default values.")
+        if result[1]:
+            my_config['TIMEOUT_INT'] = result[1]
+        else:
+            my_config['TIMEOUT_INT'] = 3
+            print("No TIMEOUT found, using default values.")
+        if result[2]:
+            my_config['CONN_ATTEMPTS'] = result[2]
+        else:
+            my_config['CONN_ATTEMPTS'] = 10
+            print("No CONN_ATTEMPTS found, using default values.")
+
+        cursor.execute("SELECT NUM_CONNECTIONS FROM TokenConfig WHERE ID = (SELECT MAX(ID) FROM TokenConfig)")
+        result = cursor.fetchone()
+    cnx.commit()
+    cnx.close()
+
 def reconfigure():
     """Change next_ip to pi_id + 1's next_ip in the case
     of host dropout."""
+    cnx = mysql.connector.connect(user='root', password='',
+                              host='172.20.10.2',
+                              database='piSenseDB')
     global my_config
     global DB_CONNECTOR
+    if CONFIG[pi_id]["next_ip"] != my_config["next_ip"]:
+        print("Going back to original config")
+        my_config = CONFIG[pi_id].copy()
+        with cnx.cursor() as cursor:
+            cursor.execute("""
+    INSERT INTO TokenConfig (NUM_CONNECTIONS, TIMEOUT, CONNATTEMPTS, USER)
+    SELECT %s, POLL_DELAY, %s * POLL_DELAY, %s
+    FROM PrimConfig
+    ORDER BY ID DESC
+    LIMIT 1;
+""", (3, 3,f"pi_id: {pi_id}"))
+        cnx.commit()
+        cnx.close()
+        return
+    
     new_next_ip = CONFIG[pi_id % 3 + 1]["next_ip"]
     my_config["next_ip"] = new_next_ip
-    DB_CONNECTOR = pi_id
-
-    
+    if(pi_id == sensor_data["DB_CONNECTOR"] - 1):
+        print("Reconfiguring DB_CONNECTOR")
+        sensor_data["DB_CONNECTOR"] = pi_id
+    with cnx.cursor() as cursor:
+            cursor.execute("""
+    INSERT INTO TokenConfig (NUM_CONNECTIONS, TIMEOUT, CONNATTEMPTS, USER)
+    SELECT %s, POLL_DELAY, %s * POLL_DELAY, %s
+    FROM PrimConfig
+    ORDER BY ID DESC
+    LIMIT 1;
+    """, (2, 2,f"pi_id: {pi_id}"))
+    cnx.commit()
+    cnx.close()
 def read_wind_speed(voltage):
     voltage = max(min(voltage, V_MAX), V_MIN)
     return map_range(voltage, V_MIN, V_MAX, WIND_MIN, WIND_MAX)
@@ -90,9 +167,7 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
 
         # stemma
         soil_moisture = soil_sensor.moisture_read()
-        soil_temp = soil_sensor.get_temp()
         sensor_data["soil_moist"][pi_id-1] = soil_moisture
-        sensor_data["soil_temp"][pi_id-1] = soil_temp
 
         # adc/windspeed
         voltage = windspeed_channel.voltage
@@ -100,11 +175,13 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
         sensor_data["wind_speed"][pi_id-1] = wind_speed
 
         if sensor_data["DB_CONNECTOR"] == pi_id:
+            print("Writing to DB")
+            print(sensor_data)
             write_to_db(sensor_data)
 
         if sensor_data["RESET"] == 1:
             print("RESET RECIEVED")
-            my_config = CONFIG[pi_id]
+            my_config = CONFIG[pi_id].copy()
             print(my_config)
 
         if reset:
@@ -114,21 +191,19 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
         else:
             sensor_data["RESET"] = 0
 
-        timestamp = datetime.datetime.now()
+        timestamp = datetime.now()
         log_entry = (
             f"Josette Vigil\n"
             f"{timestamp}\n"
             f"Temperature: {temperature:.2f} C\n"
             f"Humidity: {humidity:.2f} %\n"
             f"Soil Moisture: {soil_moisture}\n"
-            f"Soil Temperature: {soil_temp:.2f} C\n"
             f"Wind speed: {wind_speed:.2f} m/s\n\n"
         )
 
         # print(log_entry.strip())
         with open(log_file, "a") as file:
             file.write(log_entry)
-        
         return json.dumps(sensor_data)
     
     except Exception as e:
@@ -139,17 +214,18 @@ def handle_connection():
     global my_config
     with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as server:
         server.bind((my_config["this_ip"], PORT))
-        server.listen(5)
-        server.settimeout(10)
         round_number = 0
         last_addr = my_config["previous_ip"]
         while True:
             RESET = False
+            check_db_config()
+            server.listen(5)
+            server.settimeout(my_config["TIMEOUT_INT"])
             try:
                 conn, addr = server.accept()
                 print(addr[0], last_addr)
                 if addr[0] == my_config["previous_ip"] and last_addr != my_config["previous_ip"]:
-                    my_config = CONFIG[pi_id]
+                    my_config = CONFIG[pi_id].copy()
                     RESET = True
                     print("IN RESET TO TRUE IF STATEMENT")
                 last_addr = addr[0]
@@ -162,7 +238,8 @@ def handle_connection():
                             print(payload)
                             final_data = sense_and_marshall(payload)
                         # final_data = payload
-                            plot_data(final_data, round_number)
+                            print(final_data)
+                            #plot_data(final_data, round_number)
                             if RESET:
                                 sensor_data["RESET"] = 1
                             empty_data = json.dumps(sensor_data)
@@ -178,6 +255,7 @@ def handle_connection():
                             time.sleep(1)
                             packet = "token" + new_payload
                             send_packet(packet)
+                time.sleep(my_config["POLL_DELAY"])
             except socket.timeout:
                 print("Timeout occurred while listening. Sending packet downstream...")
                 empty_data = json.dumps(sensor_data)
@@ -199,17 +277,33 @@ def send_packet(msg):
                 break
         except (ConnectionRefusedError, OSError) as e:
             retries += 1
-            if retries >= 10:
+            print(my_config)
+            if retries >= my_config['CONN_ATTEMPTS']:
+                retries = 0
+                print("Reconfiguring due to connection failure...")
                 reconfigure()
             print("Connection failure:")
             print(e)
             time.sleep(1)
 
-def write_to_db():
-    for i in range(len(CLIENTS)):
+def write_to_db(sensor_data_):
+    sensor_data = sensor_data_
+    print(sensor_data)
+    timestamp = datetime.now()
+    for i in range(len(sensor_data["wind_speed"])):
         pis_readings = []
-        for value in sensor_data.items():
-            pis_readings.append(value[i])
+        pis_readings.append(timestamp)
+        for value in sensor_data.values():
+            if isinstance(value, list):
+                pis_readings.append(value[i])
+
+        print(pis_readings)
+        if(pis_readings[1] == 0 and 
+            pis_readings[2] == 0 and 
+            pis_readings[3] == 0 and 
+            pis_readings[4] == 0):
+            print("Skipping empty readings")
+            continue
         with cnx.cursor() as cursor:
             table = f"sensor_readings{i+1}"
             cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", pis_readings)
@@ -219,7 +313,7 @@ def plot_data(sensor_data_,round_number):
     """
     Plot sensor data using matplotlib
     """
-    # print(sensor_data_)
+    print(sensor_data_)
     data = json.loads(sensor_data_)
     temps = data["temperature"]
     hums = data["humidity"]
