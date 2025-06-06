@@ -214,10 +214,10 @@ def search():
                 data = cursor.fetchall()
             plot_data()
             plots = [f for f in os.listdir("static") if os.path.isfile(os.path.join("static", f))]
-            return render_template("index.html", data=data)
+            return render_template("index.html", data=data, plots=plots)
         plot_data()
         plots = [f for f in os.listdir("static") if os.path.isfile(os.path.join("static", f))]
-        return render_template("index.html", data=data)
+        return render_template("index.html", data=data, plots=plots)
                 
         
 
