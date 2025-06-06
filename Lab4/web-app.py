@@ -196,28 +196,37 @@ def update_config_route():
 
 @app.route("/search", methods=["GET","POST"])
 def search():
-    with mysql.connector.connect(user='root', password='',
-                              host='127.0.0.1',
-                              database='piSenseDB') as sql_connection:
-        cursor = sql_connection.cursor()
-        if request.method == "POST":
-            timestamp = request.form["timestmp"]
-            cursor.execute("SELECT * FROM sensor_readings1 WHERE timestamp LIKE %s UNION "
-                           "SELECT * FROM sensor_readings2 WHERE timestamp LIKE %s UNION "
-                           "SELECT * FROM sensor_readings3 WHERE timestamp LIKE %s",
-                           timestmp,timestmp,timestmp)
-            sql_connection.commit()
+    curr_auth = get_auth()
+    print(curr_auth)
+    if curr_auth != 'Admin' and curr_auth != 'Editor' and curr_auth != 'Viewer':
+        return jsonify({"status": "error", "message": "Unauthorized access."}), 403
+    try:
+        with mysql.connector.connect(user='root', password='',
+                                host='127.0.0.1',
+                                database='piSenseDB') as sql_connection:
+            cursor = sql_connection.cursor(dictionary=True)
+            if request.method == "POST":
+                timestamp = request.form["timestamp"]
+                date_only = datetime.strptime(timestamp, "%Y-%m-%d").date()
+                date_str = date_only.strftime("%Y-%m-%d")
+                print(timestamp)
+                cursor.execute("""
+        SELECT * FROM sensor_readings1 WHERE DATE(timestamp) = %s
+        UNION
+        SELECT * FROM sensor_readings2 WHERE DATE(timestamp) = %s
+        UNION
+        SELECT * FROM sensor_readings3 WHERE DATE(timestamp) = %s
+    """, (date_only, date_only, date_only))
             data = cursor.fetchall()
+            sql_connection.commit()
             if len(data) == 0:
-                cursor.execute("SELECT * FROM sensor_readings1")
-                sql_connection.commit()
-                data = cursor.fetchall()
-            plot_data()
-            plots = [f for f in os.listdir("static") if os.path.isfile(os.path.join("static", f))]
-            return render_template("index.html", data=data, plots=plots)
-        plot_data()
-        plots = [f for f in os.listdir("static") if os.path.isfile(os.path.join("static", f))]
-        return render_template("index.html", data=data, plots=plots)
+            #     cursor.execute("SELECT * FROM sensor_readings1")
+            #     data = cursor.fetchall()
+            #     sql_connection.commit()
+                return {"status": "error", "message": "No data from this date"}
+        return jsonify(data), 200
+    except ValueError:
+        return "Invalid date format. Please use YYYY-MM-DD", 40
                 
         
 
