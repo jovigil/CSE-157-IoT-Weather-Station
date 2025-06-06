@@ -53,21 +53,21 @@ CONFIG = {
     1: {
         "previous_ip": "172.20.10.13",
         "this_ip": "172.20.10.11",
-        "next_ip": "172.20.10.3",
+        "next_ip": "172.20.10.14",
         "CONN_ATTEMPTS": 10,
         "POLL_DELAY": 1,
         "TIMEOUT_INT": 5,
     },
     2: {
         "previous_ip": "172.20.10.11",
-        "this_ip": "172.20.10.3",
+        "this_ip": "172.20.10.14",
         "next_ip": "172.20.10.13",
         "CONN_ATTEMPTS": 10,
         "POLL_DELAY": 1,
         "TIMEOUT_INT": 5,
     },
     3: {
-        "previous_ip": "172.20.10.3",
+        "previous_ip": "172.20.10.14",
         "this_ip": "172.20.10.13",
         "next_ip": "172.20.10.11",
         "CONN_ATTEMPTS": 10,
@@ -138,7 +138,7 @@ def reconfigure():
     my_config["next_ip"] = new_next_ip
     if(pi_id == sensor_data["DB_CONNECTOR"] - 1):
         print("Reconfiguring DB_CONNECTOR")
-        sensor_data["DB_CONNECTOR"] = pi_id
+        DB_CONNECTOR = pi_id
     with cnx.cursor() as cursor:
             cursor.execute("""
     INSERT INTO TokenConfig (NUM_CONNECTIONS, TIMEOUT, CONNATTEMPTS, USER)
@@ -175,7 +175,7 @@ def sense_and_marshall(sensor_data_, reset=False) -> str:
         wind_speed = read_wind_speed(voltage)
         sensor_data["wind_speed"][pi_id-1] = wind_speed
 
-        if sensor_data["DB_CONNECTOR"] == pi_id:
+        if DB_CONNECTOR == pi_id:
             print("Writing to DB")
             print(sensor_data)
             write_to_db(sensor_data)
@@ -291,6 +291,9 @@ def write_to_db(sensor_data_):
     sensor_data = sensor_data_
     print(sensor_data)
     timestamp = datetime.now()
+    cnx = mysql.connector.connect(user='root', password='',
+                              host='172.20.10.2',
+                              database='piSenseDB')
     for i in range(len(sensor_data["wind_speed"])):
         pis_readings = []
         pis_readings.append(timestamp)
@@ -309,6 +312,7 @@ def write_to_db(sensor_data_):
             table = f"sensor_readings{i+1}"
             cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", pis_readings)
     cnx.commit()
+    cnx.close()
 
 def plot_data(sensor_data_,round_number):
     """
