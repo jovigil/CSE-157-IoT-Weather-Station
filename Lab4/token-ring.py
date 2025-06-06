@@ -311,7 +311,7 @@ def write_to_db(sensor_data_):
             continue
         with cnx.cursor() as cursor:
             table = f"sensor_readings{i+1}"
-            cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", pis_readings)
+            cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity,`soil moisture`, windspeed) VALUES (%s, %s, %s, %s, %s)", pis_readings)
     cnx.commit()
     cnx.close()
 
