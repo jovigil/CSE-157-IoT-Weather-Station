@@ -1,0 +1,3402 @@
+Josette Vigil
+2025-06-05 20:15:33.255141
+Temperature: 21.78 C
+Humidity: 53.49 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:36.380673
+Temperature: 21.78 C
+Humidity: 53.51 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:38.511044
+Temperature: 21.77 C
+Humidity: 53.53 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:40.632275
+Temperature: 21.78 C
+Humidity: 53.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:42.742287
+Temperature: 21.75 C
+Humidity: 53.55 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:44.864915
+Temperature: 21.75 C
+Humidity: 53.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:47.065489
+Temperature: 21.77 C
+Humidity: 53.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:49.215624
+Temperature: 21.74 C
+Humidity: 53.57 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:51.373482
+Temperature: 21.74 C
+Humidity: 53.57 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:53.497655
+Temperature: 21.72 C
+Humidity: 53.59 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:55.660683
+Temperature: 21.74 C
+Humidity: 53.61 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:15:57.930588
+Temperature: 21.71 C
+Humidity: 53.63 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:16:00.052104
+Temperature: 21.72 C
+Humidity: 53.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:16:02.214273
+Temperature: 21.69 C
+Humidity: 53.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:16:04.338258
+Temperature: 21.69 C
+Humidity: 53.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:16:06.490772
+Temperature: 21.71 C
+Humidity: 53.64 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:16:08.609134
+Temperature: 21.69 C
+Humidity: 53.68 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:16:10.818326
+Temperature: 21.69 C
+Humidity: 53.69 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:06.111925
+Temperature: 21.58 C
+Humidity: 53.95 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:08.254635
+Temperature: 21.57 C
+Humidity: 53.97 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:10.409822
+Temperature: 21.57 C
+Humidity: 53.95 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:12.547992
+Temperature: 21.57 C
+Humidity: 53.96 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:14.743853
+Temperature: 21.57 C
+Humidity: 53.99 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:16.910023
+Temperature: 21.58 C
+Humidity: 53.98 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:19.028340
+Temperature: 21.55 C
+Humidity: 53.98 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:21.312805
+Temperature: 21.55 C
+Humidity: 54.02 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:23.603435
+Temperature: 21.57 C
+Humidity: 54.00 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:25.761110
+Temperature: 21.55 C
+Humidity: 53.99 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:27.887660
+Temperature: 21.57 C
+Humidity: 54.03 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:30.012990
+Temperature: 21.54 C
+Humidity: 54.01 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:32.124482
+Temperature: 21.54 C
+Humidity: 54.02 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:34.277846
+Temperature: 21.54 C
+Humidity: 54.06 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:36.421528
+Temperature: 21.54 C
+Humidity: 54.07 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:38.578427
+Temperature: 21.51 C
+Humidity: 54.04 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:40.691961
+Temperature: 21.54 C
+Humidity: 54.05 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:42.820921
+Temperature: 21.53 C
+Humidity: 54.09 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:44.959247
+Temperature: 21.54 C
+Humidity: 54.09 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:47.082776
+Temperature: 21.53 C
+Humidity: 54.12 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:49.220235
+Temperature: 21.51 C
+Humidity: 54.12 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:51.399604
+Temperature: 21.53 C
+Humidity: 54.17 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:53.521831
+Temperature: 21.51 C
+Humidity: 54.19 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:55.660605
+Temperature: 21.53 C
+Humidity: 54.16 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:57.784899
+Temperature: 21.48 C
+Humidity: 54.16 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:17:59.902474
+Temperature: 21.50 C
+Humidity: 54.20 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:02.016082
+Temperature: 21.51 C
+Humidity: 54.18 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:04.169147
+Temperature: 21.50 C
+Humidity: 54.17 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:06.319893
+Temperature: 21.50 C
+Humidity: 54.16 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:17.583309
+Temperature: 21.48 C
+Humidity: 54.20 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:28.744986
+Temperature: 21.45 C
+Humidity: 54.26 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:34.971438
+Temperature: 21.44 C
+Humidity: 54.25 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:44.673160
+Temperature: 21.45 C
+Humidity: 54.33 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:50.868964
+Temperature: 21.45 C
+Humidity: 54.35 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:53.103115
+Temperature: 21.44 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:55.218255
+Temperature: 21.44 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:57.351340
+Temperature: 21.45 C
+Humidity: 54.34 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:18:59.586392
+Temperature: 21.44 C
+Humidity: 54.34 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:01.715377
+Temperature: 21.44 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:03.981116
+Temperature: 21.44 C
+Humidity: 54.34 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:06.119464
+Temperature: 21.43 C
+Humidity: 54.38 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:08.245775
+Temperature: 21.43 C
+Humidity: 54.37 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:10.387631
+Temperature: 21.41 C
+Humidity: 54.38 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:12.542497
+Temperature: 21.44 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:14.726712
+Temperature: 21.43 C
+Humidity: 54.37 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:16.854579
+Temperature: 21.41 C
+Humidity: 54.35 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:18.978822
+Temperature: 21.43 C
+Humidity: 54.38 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:21.303408
+Temperature: 21.41 C
+Humidity: 54.33 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:23.790984
+Temperature: 21.43 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:25.997373
+Temperature: 21.43 C
+Humidity: 54.36 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:28.127404
+Temperature: 21.40 C
+Humidity: 54.38 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:30.253940
+Temperature: 21.38 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:32.382012
+Temperature: 21.38 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:34.521829
+Temperature: 21.41 C
+Humidity: 54.36 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:36.640495
+Temperature: 21.40 C
+Humidity: 54.37 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:38.782278
+Temperature: 21.41 C
+Humidity: 54.39 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:40.921188
+Temperature: 21.41 C
+Humidity: 54.42 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:43.053299
+Temperature: 21.40 C
+Humidity: 54.41 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:45.188119
+Temperature: 21.40 C
+Humidity: 54.44 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:47.304051
+Temperature: 21.40 C
+Humidity: 54.40 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:49.425763
+Temperature: 21.40 C
+Humidity: 54.40 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:51.656134
+Temperature: 21.38 C
+Humidity: 54.43 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:53.857168
+Temperature: 21.38 C
+Humidity: 54.43 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:56.004129
+Temperature: 21.40 C
+Humidity: 54.43 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:19:58.129064
+Temperature: 21.37 C
+Humidity: 54.41 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:00.312133
+Temperature: 21.38 C
+Humidity: 54.45 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:02.431500
+Temperature: 21.40 C
+Humidity: 54.46 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:04.561996
+Temperature: 21.38 C
+Humidity: 54.45 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:06.732187
+Temperature: 21.40 C
+Humidity: 54.48 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:08.868542
+Temperature: 21.40 C
+Humidity: 54.45 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:21.320294
+Temperature: 21.36 C
+Humidity: 54.52 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:23.586868
+Temperature: 21.36 C
+Humidity: 54.49 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:25.702799
+Temperature: 21.37 C
+Humidity: 54.51 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:27.821574
+Temperature: 21.37 C
+Humidity: 54.55 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:29.948796
+Temperature: 21.36 C
+Humidity: 54.51 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:32.075811
+Temperature: 21.36 C
+Humidity: 54.54 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:34.200890
+Temperature: 21.34 C
+Humidity: 54.50 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:36.353164
+Temperature: 21.36 C
+Humidity: 54.55 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:38.636197
+Temperature: 21.36 C
+Humidity: 54.51 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:40.872188
+Temperature: 21.34 C
+Humidity: 54.54 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:43.094583
+Temperature: 21.36 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:45.257406
+Temperature: 21.34 C
+Humidity: 54.56 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:47.533212
+Temperature: 21.36 C
+Humidity: 54.52 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:49.718602
+Temperature: 21.34 C
+Humidity: 54.52 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:51.925071
+Temperature: 21.33 C
+Humidity: 54.54 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:54.053657
+Temperature: 21.37 C
+Humidity: 54.56 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:56.263035
+Temperature: 21.34 C
+Humidity: 54.60 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:20:58.481613
+Temperature: 21.34 C
+Humidity: 54.57 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:00.604628
+Temperature: 21.36 C
+Humidity: 54.58 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:02.881962
+Temperature: 21.34 C
+Humidity: 54.60 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:04.997300
+Temperature: 21.33 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:07.192535
+Temperature: 21.33 C
+Humidity: 54.59 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:09.316493
+Temperature: 21.33 C
+Humidity: 54.58 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:11.477602
+Temperature: 21.34 C
+Humidity: 54.59 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:13.592879
+Temperature: 21.34 C
+Humidity: 54.59 %
+Soil Moisture: 346
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:15.763233
+Temperature: 21.36 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:17.934064
+Temperature: 21.33 C
+Humidity: 54.63 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:20.049091
+Temperature: 21.34 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:22.400502
+Temperature: 21.34 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:24.639182
+Temperature: 21.36 C
+Humidity: 54.60 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:26.775076
+Temperature: 21.33 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:28.987691
+Temperature: 21.33 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:31.122152
+Temperature: 21.34 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:33.378136
+Temperature: 21.33 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:35.520701
+Temperature: 21.34 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:37.686392
+Temperature: 21.33 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:39.820551
+Temperature: 21.31 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:41.947220
+Temperature: 21.34 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:44.259223
+Temperature: 21.36 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:46.500651
+Temperature: 21.36 C
+Humidity: 54.63 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:48.678914
+Temperature: 21.34 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:50.999904
+Temperature: 21.34 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:21:53.136039
+Temperature: 21.37 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:08.092785
+Temperature: 21.33 C
+Humidity: 54.69 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:10.362076
+Temperature: 21.33 C
+Humidity: 54.69 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:13.576688
+Temperature: 21.33 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:15.766665
+Temperature: 21.31 C
+Humidity: 54.68 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:28.677182
+Temperature: 21.31 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:30.846527
+Temperature: 21.31 C
+Humidity: 54.70 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:32.976387
+Temperature: 21.33 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:35.113046
+Temperature: 21.31 C
+Humidity: 54.70 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:37.296685
+Temperature: 21.33 C
+Humidity: 54.68 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:39.405569
+Temperature: 21.33 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:41.572003
+Temperature: 21.33 C
+Humidity: 54.68 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:43.743784
+Temperature: 21.30 C
+Humidity: 54.67 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:46.180080
+Temperature: 21.31 C
+Humidity: 54.67 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:48.305603
+Temperature: 21.31 C
+Humidity: 54.70 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:50.478845
+Temperature: 21.36 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:52.634909
+Temperature: 21.31 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:54.773218
+Temperature: 21.31 C
+Humidity: 54.70 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:56.911739
+Temperature: 21.31 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:22:59.077415
+Temperature: 21.33 C
+Humidity: 54.70 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:23:01.352999
+Temperature: 21.31 C
+Humidity: 54.68 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:23:03.485964
+Temperature: 21.33 C
+Humidity: 54.68 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:23:15.725930
+Temperature: 21.30 C
+Humidity: 54.73 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:23:17.851863
+Temperature: 21.31 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:23:19.986202
+Temperature: 21.33 C
+Humidity: 54.74 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:25:49.523640
+Temperature: 21.30 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:25:51.743441
+Temperature: 21.29 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:25:53.867374
+Temperature: 21.30 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:06.469817
+Temperature: 21.30 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:08.659163
+Temperature: 21.27 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:10.942496
+Temperature: 21.29 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:13.166386
+Temperature: 21.30 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:15.479315
+Temperature: 21.31 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:17.725473
+Temperature: 21.29 C
+Humidity: 54.77 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:19.957276
+Temperature: 21.27 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:22.586046
+Temperature: 21.31 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:24.863960
+Temperature: 21.29 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:27.060735
+Temperature: 21.30 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:29.254811
+Temperature: 21.31 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:31.541377
+Temperature: 21.27 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:33.772581
+Temperature: 21.29 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:36.076351
+Temperature: 21.30 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:38.320184
+Temperature: 21.26 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:40.539277
+Temperature: 21.29 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:42.877854
+Temperature: 21.29 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:45.101104
+Temperature: 21.30 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:47.583510
+Temperature: 21.31 C
+Humidity: 54.77 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:50.050071
+Temperature: 21.27 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:52.340129
+Temperature: 21.29 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:54.573581
+Temperature: 21.29 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:56.846083
+Temperature: 21.27 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:26:59.041959
+Temperature: 21.29 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:01.262889
+Temperature: 21.29 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:03.519864
+Temperature: 21.30 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:05.750679
+Temperature: 21.27 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:07.945854
+Temperature: 21.30 C
+Humidity: 54.78 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:10.130649
+Temperature: 21.29 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:12.338162
+Temperature: 21.27 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:14.544642
+Temperature: 21.31 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:16.742992
+Temperature: 21.29 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:18.946502
+Temperature: 21.29 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:21.426283
+Temperature: 21.27 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:24.420921
+Temperature: 21.27 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:26.615494
+Temperature: 21.30 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:28.811056
+Temperature: 21.29 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:41.184037
+Temperature: 21.29 C
+Humidity: 54.85 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:43.376164
+Temperature: 21.29 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:27:45.562731
+Temperature: 21.29 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:09.099973
+Temperature: 21.26 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:11.753321
+Temperature: 21.26 C
+Humidity: 54.88 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:14.043647
+Temperature: 21.27 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:16.268994
+Temperature: 21.29 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:53.129706
+Temperature: 21.29 C
+Humidity: 55.76 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:55.364399
+Temperature: 21.29 C
+Humidity: 55.86 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:57.576738
+Temperature: 21.27 C
+Humidity: 55.76 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:28:59.716048
+Temperature: 21.29 C
+Humidity: 55.61 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:01.840748
+Temperature: 21.29 C
+Humidity: 55.48 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:14.353602
+Temperature: 21.29 C
+Humidity: 55.13 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:16.552295
+Temperature: 21.27 C
+Humidity: 55.04 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:18.757165
+Temperature: 21.30 C
+Humidity: 55.04 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:21.437598
+Temperature: 21.29 C
+Humidity: 54.99 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:24.265210
+Temperature: 21.27 C
+Humidity: 54.98 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:26.536244
+Temperature: 21.29 C
+Humidity: 54.93 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:28.764582
+Temperature: 21.27 C
+Humidity: 54.96 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:31.080248
+Temperature: 21.26 C
+Humidity: 54.98 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:33.361356
+Temperature: 21.27 C
+Humidity: 54.91 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:35.644959
+Temperature: 21.29 C
+Humidity: 54.95 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:37.850518
+Temperature: 21.26 C
+Humidity: 54.92 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:40.070025
+Temperature: 21.30 C
+Humidity: 54.87 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:43.833620
+Temperature: 21.27 C
+Humidity: 54.88 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:46.587925
+Temperature: 21.29 C
+Humidity: 54.92 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:48.858537
+Temperature: 21.30 C
+Humidity: 54.91 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:51.051276
+Temperature: 21.30 C
+Humidity: 54.86 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:53.337201
+Temperature: 21.27 C
+Humidity: 54.87 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:55.626801
+Temperature: 21.29 C
+Humidity: 54.86 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:29:57.820242
+Temperature: 21.26 C
+Humidity: 54.87 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:00.038188
+Temperature: 21.30 C
+Humidity: 54.86 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:02.427706
+Temperature: 21.30 C
+Humidity: 54.88 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:04.681995
+Temperature: 21.30 C
+Humidity: 54.89 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:06.890358
+Temperature: 21.27 C
+Humidity: 54.87 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:09.116701
+Temperature: 21.30 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:11.340189
+Temperature: 21.29 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:13.757190
+Temperature: 21.30 C
+Humidity: 54.85 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:16.008436
+Temperature: 21.30 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:18.205816
+Temperature: 21.29 C
+Humidity: 54.86 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:20.389220
+Temperature: 21.30 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:23.180674
+Temperature: 21.29 C
+Humidity: 54.82 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:25.516028
+Temperature: 21.30 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:27.742753
+Temperature: 21.31 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:30.010145
+Temperature: 21.31 C
+Humidity: 54.81 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:32.278650
+Temperature: 21.31 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:34.504148
+Temperature: 21.30 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:36.770203
+Temperature: 21.29 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:39.045658
+Temperature: 21.30 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:41.291951
+Temperature: 21.27 C
+Humidity: 54.85 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:43.555091
+Temperature: 21.30 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:45.869103
+Temperature: 21.31 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:48.159664
+Temperature: 21.29 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:50.441267
+Temperature: 21.30 C
+Humidity: 54.82 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:52.687499
+Temperature: 21.31 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:54.919475
+Temperature: 21.29 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:57.178589
+Temperature: 21.29 C
+Humidity: 54.78 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:30:59.385963
+Temperature: 21.29 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:01.576107
+Temperature: 21.29 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:03.770315
+Temperature: 21.29 C
+Humidity: 54.82 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:06.048020
+Temperature: 21.30 C
+Humidity: 54.86 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:08.280544
+Temperature: 21.30 C
+Humidity: 54.98 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:10.464795
+Temperature: 21.29 C
+Humidity: 55.08 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:12.716639
+Temperature: 21.30 C
+Humidity: 55.04 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:15.258283
+Temperature: 21.31 C
+Humidity: 55.00 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:17.684478
+Temperature: 21.30 C
+Humidity: 54.98 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:20.041475
+Temperature: 21.31 C
+Humidity: 54.96 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:23.414170
+Temperature: 21.30 C
+Humidity: 54.92 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:25.998269
+Temperature: 21.30 C
+Humidity: 54.91 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:28.330262
+Temperature: 21.31 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:30.573613
+Temperature: 21.31 C
+Humidity: 54.88 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:32.986964
+Temperature: 21.31 C
+Humidity: 54.88 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:35.221198
+Temperature: 21.30 C
+Humidity: 54.87 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:37.455913
+Temperature: 21.33 C
+Humidity: 54.85 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:39.706722
+Temperature: 21.33 C
+Humidity: 54.87 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:41.965046
+Temperature: 21.31 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:44.223554
+Temperature: 21.30 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:46.446910
+Temperature: 21.31 C
+Humidity: 54.84 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:48.670971
+Temperature: 21.30 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:50.961076
+Temperature: 21.31 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:53.416519
+Temperature: 21.30 C
+Humidity: 54.81 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:55.676088
+Temperature: 21.30 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:31:57.881065
+Temperature: 21.30 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:00.107266
+Temperature: 21.33 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:02.426149
+Temperature: 21.31 C
+Humidity: 54.83 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:04.661529
+Temperature: 21.31 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:06.917258
+Temperature: 21.31 C
+Humidity: 54.80 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:09.121369
+Temperature: 21.31 C
+Humidity: 54.81 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:11.428230
+Temperature: 21.33 C
+Humidity: 54.77 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:13.746348
+Temperature: 21.31 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:16.127186
+Temperature: 21.30 C
+Humidity: 54.79 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:18.334991
+Temperature: 21.33 C
+Humidity: 54.78 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:20.571256
+Temperature: 21.33 C
+Humidity: 54.79 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:32:23.629777
+Temperature: 21.30 C
+Humidity: 54.75 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:34:34.937936
+Temperature: 21.34 C
+Humidity: 54.73 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:34:37.223941
+Temperature: 21.30 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:34:39.348095
+Temperature: 21.33 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:34:41.573179
+Temperature: 21.31 C
+Humidity: 54.73 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:34:54.335567
+Temperature: 21.33 C
+Humidity: 54.74 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:34:56.651699
+Temperature: 21.33 C
+Humidity: 54.76 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:34:58.853036
+Temperature: 21.33 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:01.086997
+Temperature: 21.31 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:03.348389
+Temperature: 21.34 C
+Humidity: 54.73 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:05.590916
+Temperature: 21.33 C
+Humidity: 54.77 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:07.806145
+Temperature: 21.31 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:10.008158
+Temperature: 21.30 C
+Humidity: 54.73 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:12.277536
+Temperature: 21.36 C
+Humidity: 54.74 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:14.464796
+Temperature: 21.34 C
+Humidity: 54.73 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:16.717861
+Temperature: 21.33 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:18.921378
+Temperature: 21.33 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:21.572399
+Temperature: 21.33 C
+Humidity: 54.74 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:24.273555
+Temperature: 21.30 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:26.586170
+Temperature: 21.30 C
+Humidity: 54.70 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:28.824001
+Temperature: 21.31 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:31.017202
+Temperature: 21.33 C
+Humidity: 54.71 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:33.247141
+Temperature: 21.33 C
+Humidity: 54.70 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:35.487861
+Temperature: 21.31 C
+Humidity: 54.73 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:37.742543
+Temperature: 21.33 C
+Humidity: 54.74 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:40.239316
+Temperature: 21.34 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:42.856316
+Temperature: 21.33 C
+Humidity: 54.74 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:45.192296
+Temperature: 21.33 C
+Humidity: 54.70 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:35:50.493712
+Temperature: 21.34 C
+Humidity: 54.72 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:34.323953
+Temperature: 21.34 C
+Humidity: 54.67 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:36.544725
+Temperature: 21.34 C
+Humidity: 54.64 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:38.696039
+Temperature: 21.31 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:40.833865
+Temperature: 21.33 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:42.934256
+Temperature: 21.34 C
+Humidity: 54.66 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:45.054192
+Temperature: 21.34 C
+Humidity: 54.63 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:47.196556
+Temperature: 21.31 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:49.352076
+Temperature: 21.33 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:51.489433
+Temperature: 21.33 C
+Humidity: 54.67 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:53.603033
+Temperature: 21.33 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:55.735648
+Temperature: 21.33 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:36:57.864820
+Temperature: 21.33 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:00.001394
+Temperature: 21.34 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:02.256293
+Temperature: 21.33 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:04.379257
+Temperature: 21.34 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:06.553740
+Temperature: 21.33 C
+Humidity: 54.63 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:08.697992
+Temperature: 21.33 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:10.851172
+Temperature: 21.33 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:12.995103
+Temperature: 21.33 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:15.110321
+Temperature: 21.37 C
+Humidity: 54.63 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:17.301768
+Temperature: 21.33 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:19.447135
+Temperature: 21.34 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:21.744067
+Temperature: 21.36 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:24.303557
+Temperature: 21.34 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:26.426344
+Temperature: 21.31 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:28.548789
+Temperature: 21.34 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:30.672730
+Temperature: 21.31 C
+Humidity: 54.66 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:32.811163
+Temperature: 21.33 C
+Humidity: 54.67 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:34.937341
+Temperature: 21.34 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:37.090894
+Temperature: 21.33 C
+Humidity: 54.60 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:37:49.553412
+Temperature: 21.31 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:01.916814
+Temperature: 21.31 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:04.184422
+Temperature: 21.36 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:06.407214
+Temperature: 21.36 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:08.671342
+Temperature: 21.34 C
+Humidity: 54.62 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:10.937505
+Temperature: 21.36 C
+Humidity: 54.63 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:13.194333
+Temperature: 21.36 C
+Humidity: 54.60 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:18.510496
+Temperature: 21.33 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:21.968544
+Temperature: 21.34 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:25.263745
+Temperature: 21.34 C
+Humidity: 54.63 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:28.554396
+Temperature: 21.33 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:30.832615
+Temperature: 21.31 C
+Humidity: 54.64 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:34.040302
+Temperature: 21.34 C
+Humidity: 54.65 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:37.377321
+Temperature: 21.33 C
+Humidity: 54.59 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:38:40.594905
+Temperature: 21.34 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:39:45.009913
+Temperature: 21.34 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:39:47.131896
+Temperature: 21.34 C
+Humidity: 54.61 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:39:49.282445
+Temperature: 21.36 C
+Humidity: 54.58 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:01.796761
+Temperature: 21.36 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:03.984204
+Temperature: 21.37 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:06.238496
+Temperature: 21.34 C
+Humidity: 54.57 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:08.497021
+Temperature: 21.34 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:10.739076
+Temperature: 21.34 C
+Humidity: 54.58 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:13.061291
+Temperature: 21.36 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:15.338406
+Temperature: 21.36 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:17.638211
+Temperature: 21.36 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:19.832340
+Temperature: 21.34 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:22.577666
+Temperature: 21.36 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:24.910804
+Temperature: 21.34 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:27.170692
+Temperature: 21.34 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:29.371147
+Temperature: 21.34 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:31.700941
+Temperature: 21.36 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:34.056995
+Temperature: 21.37 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:36.271390
+Temperature: 21.36 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:38.511726
+Temperature: 21.37 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:40.804768
+Temperature: 21.37 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:43.376539
+Temperature: 21.37 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:45.713549
+Temperature: 21.34 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:48.016251
+Temperature: 21.36 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:50.255353
+Temperature: 21.34 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:52.486241
+Temperature: 21.38 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:54.691157
+Temperature: 21.40 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:57.000746
+Temperature: 21.36 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:40:59.408095
+Temperature: 21.37 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:01.655370
+Temperature: 21.36 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:03.910501
+Temperature: 21.36 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:06.281013
+Temperature: 21.37 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:08.490068
+Temperature: 21.34 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:10.720021
+Temperature: 21.38 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:12.968294
+Temperature: 21.37 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:15.188841
+Temperature: 21.36 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:17.399076
+Temperature: 21.38 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:19.631770
+Temperature: 21.37 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:22.066053
+Temperature: 21.38 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:24.768571
+Temperature: 21.36 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:26.973893
+Temperature: 21.36 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:29.281172
+Temperature: 21.38 C
+Humidity: 54.52 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:31.494177
+Temperature: 21.38 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:33.787939
+Temperature: 21.37 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:36.145066
+Temperature: 21.36 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:38.335604
+Temperature: 21.36 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:40.677826
+Temperature: 21.36 C
+Humidity: 54.47 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:43.071417
+Temperature: 21.37 C
+Humidity: 54.50 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:45.351910
+Temperature: 21.38 C
+Humidity: 54.53 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:47.613549
+Temperature: 21.37 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:49.906004
+Temperature: 21.37 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:52.115503
+Temperature: 21.34 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:54.390946
+Temperature: 21.36 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:56.666037
+Temperature: 21.36 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:41:58.972342
+Temperature: 21.36 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:42:01.248601
+Temperature: 21.37 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:05.513258
+Temperature: 21.37 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:07.689277
+Temperature: 21.37 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:09.892492
+Temperature: 21.38 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:27.758635
+Temperature: 21.40 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:29.976022
+Temperature: 21.37 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:32.460802
+Temperature: 21.37 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:34.820183
+Temperature: 21.40 C
+Humidity: 54.55 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:37.057366
+Temperature: 21.37 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:39.396204
+Temperature: 21.38 C
+Humidity: 54.57 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:42.804220
+Temperature: 21.36 C
+Humidity: 54.58 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:45.586396
+Temperature: 21.37 C
+Humidity: 54.56 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:47.708964
+Temperature: 21.40 C
+Humidity: 54.57 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:49.845119
+Temperature: 21.38 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:51.976610
+Temperature: 21.37 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:54.221986
+Temperature: 21.38 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:56.373110
+Temperature: 21.40 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:43:58.495212
+Temperature: 21.37 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:00.685374
+Temperature: 21.40 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:02.882550
+Temperature: 21.40 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:05.052763
+Temperature: 21.38 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:07.214657
+Temperature: 21.37 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:09.372985
+Temperature: 21.37 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:11.524102
+Temperature: 21.38 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:13.708035
+Temperature: 21.38 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:15.858000
+Temperature: 21.40 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:20.927494
+Temperature: 21.38 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:23.454357
+Temperature: 21.37 C
+Humidity: 54.52 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:25.837789
+Temperature: 21.37 C
+Humidity: 54.53 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:27.994437
+Temperature: 21.40 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:30.141175
+Temperature: 21.38 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:32.272697
+Temperature: 21.38 C
+Humidity: 54.54 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:34.464159
+Temperature: 21.41 C
+Humidity: 54.47 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:36.662355
+Temperature: 21.40 C
+Humidity: 54.51 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:38.862808
+Temperature: 21.40 C
+Humidity: 54.53 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:41.201043
+Temperature: 21.40 C
+Humidity: 54.47 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:43.567854
+Temperature: 21.41 C
+Humidity: 54.48 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:45.712107
+Temperature: 21.38 C
+Humidity: 54.48 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:47.838630
+Temperature: 21.40 C
+Humidity: 54.47 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:49.962185
+Temperature: 21.38 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:52.110936
+Temperature: 21.37 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:54.219139
+Temperature: 21.40 C
+Humidity: 54.50 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:56.342156
+Temperature: 21.38 C
+Humidity: 54.48 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:44:58.470777
+Temperature: 21.40 C
+Humidity: 54.49 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:00.590963
+Temperature: 21.40 C
+Humidity: 54.47 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:02.711974
+Temperature: 21.40 C
+Humidity: 54.50 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:04.865702
+Temperature: 21.37 C
+Humidity: 54.47 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:07.039911
+Temperature: 21.40 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:09.173058
+Temperature: 21.40 C
+Humidity: 54.46 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:11.329005
+Temperature: 21.38 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:13.454741
+Temperature: 21.38 C
+Humidity: 54.53 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:15.578263
+Temperature: 21.38 C
+Humidity: 54.50 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:17.727284
+Temperature: 21.38 C
+Humidity: 54.48 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:19.878899
+Temperature: 21.40 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:22.266529
+Temperature: 21.40 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:24.568133
+Temperature: 21.38 C
+Humidity: 54.48 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:26.747840
+Temperature: 21.40 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:29.129706
+Temperature: 21.37 C
+Humidity: 54.49 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:31.299963
+Temperature: 21.38 C
+Humidity: 54.44 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:33.587787
+Temperature: 21.41 C
+Humidity: 54.50 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:35.807938
+Temperature: 21.41 C
+Humidity: 54.45 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:37.974694
+Temperature: 21.38 C
+Humidity: 54.48 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:40.390038
+Temperature: 21.41 C
+Humidity: 54.46 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:42.701335
+Temperature: 21.40 C
+Humidity: 54.46 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:44.875121
+Temperature: 21.40 C
+Humidity: 54.45 %
+Soil Moisture: 344
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:47.206401
+Temperature: 21.40 C
+Humidity: 54.40 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:49.564128
+Temperature: 21.40 C
+Humidity: 54.46 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:51.680159
+Temperature: 21.38 C
+Humidity: 54.44 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+
+Josette Vigil
+2025-06-05 20:45:53.874440
+Temperature: 21.38 C
+Humidity: 54.46 %
+Soil Moisture: 345
+Wind speed: 0.00 m/s
+

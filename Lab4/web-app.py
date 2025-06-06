@@ -193,7 +193,33 @@ def update_config_route():
         return jsonify({"status": "success", "message": "Configuration updated successfully."}), 200
     except Exception as e:
         return jsonify({"status": "error", "message": str(e)}), 500
-    
+
+@app.route("/search", methods=["GET","POST"])
+def search():
+    with mysql.connector.connect(user='root', password='',
+                              host='127.0.0.1',
+                              database='piSenseDB') as sql_connection:
+        cursor = sql_connection.cursor()
+        if request.method == "POST":
+            timestamp = request.form["timestmp"]
+            cursor.execute("SELECT * FROM sensor_readings1 WHERE timestamp LIKE %s UNION "
+                           "SELECT * FROM sensor_readings2 WHERE timestamp LIKE %s UNION "
+                           "SELECT * FROM sensor_readings3 WHERE timestamp LIKE %s",
+                           timestmp,timestmp,timestmp)
+            sql_connection.commit()
+            data = cursor.fetchall()
+            if len(data) == 0:
+                cursor.execute("SELECT * FROM sensor_readings1")
+                sql_connection.commit()
+                data = cursor.fetchall()
+            plot_data()
+            plots = [f for f in os.listdir("static") if os.path.isfile(os.path.join("static", f))]
+            return render_template("index.html", data=data)
+        plot_data()
+        plots = [f for f in os.listdir("static") if os.path.isfile(os.path.join("static", f))]
+        return render_template("index.html", data=data)
+                
+        
 
 if __name__ == "__main__":
     app.run(debug=True, port=5006)
