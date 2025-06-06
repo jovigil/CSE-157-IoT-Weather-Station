@@ -28,7 +28,7 @@ config = {
 def check_config():
     print("Checking config...")
     with cnx.cursor() as cursor:
-        cursor.execute("SELECT SECONDARY_TIMEOUT FROM admin WHERE ID = (SELECT MAX(ID) FROM Admin)")
+        cursor.execute("SELECT SECONDARY_TIMEOUT FROM PrimConfig WHERE ID = (SELECT MAX(ID) FROM PrimConfig)")
         result = cursor.fetchone()
         print(result)
         if result:
