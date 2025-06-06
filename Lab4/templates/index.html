@@ -29,32 +29,69 @@
     </form>
 
     <div id="statusMessage"></div>
+    <form id="loginForm">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="loginStatus"></div>
 
     {% for plot in plots %}
         <img src="{{ url_for('static', filename=plot) }}" alt="{{ plot }}">
     {% endfor %}
 
-    <script>
-        document.getElementById("configForm").addEventListener("submit", function(event) {
-            event.preventDefault();
+<script>
+    document.getElementById("loginForm").addEventListener("submit", function(event) {
+        event.preventDefault();
 
-            const delay = document.getElementById("poll_delay").value;
+        const username = document.getElementById("username").value;
+        const password = document.getElementById("password").value;
 
-            fetch("/update_config", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json"
-                },
-                body: JSON.stringify({ POLL_DELAY: parseInt(delay) })
-            })
-            .then(response => response.json())
-            .then(data => {
-                document.getElementById("statusMessage").innerText = data.message;
-            })
-            .catch(error => {
-                document.getElementById("statusMessage").innerText = "Error: " + error;
-            });
+        fetch("/login", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ username: username, password: password })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.status === "success") {
+                alert("✅ " + data.message);
+            } else {
+                alert("❌ " + data.message);
+            }
+        })
+        .catch(error => {
+            alert("Error: " + error);
         });
-    </script>
+    });
+
+    document.getElementById("configForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        const delay = document.getElementById("poll_delay").value;
+
+        fetch("/update_config", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({ POLL_DELAY: parseInt(delay) })
+        })
+        .then(response => response.json())
+        .then(data => {
+            alert(data.message);
+        })
+        .catch(error => {
+            alert("Error: " + error);
+        });
+    });
+</script>
+
 </body>
 </html>
+
