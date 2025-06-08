@@ -13,27 +13,39 @@ def clear_all_tables():
         cursor.execute("DELETE FROM sensor_readings3")
     cnx.commit()
 
+tables = ['sensor_readings1', 'sensor_readings2', 'sensor_readings3']
+
 def generate_sensor_readings():
-    sensor_readings = []
-    temp_val = 10
-    humidity_val = 50
-    windspeed_val = 5
-    soil_moisture_val = 30
-    for i in range(1000):
+    sensor_readings = {}
+    #generate timestamps
+    timestamps = []
+    for i in range(100):
         now = datetime.now()
-        temp_val += random.uniform(-0.01, 0.05)
-        humidity_val += random.uniform(-0.03, 0.05)
-        windspeed_val += random.uniform(-0.05, 0.03)
-        soil_moisture_val += random.uniform(-0.02, 0.02)
-        sensor_readings.append((now, round(temp_val, 2), round(humidity_val, 2), round(windspeed_val, 2), round(soil_moisture_val, 2)))
-        time.sleep(0.1)
+        timestamps.append(now)
+        time.sleep(1)
+        print(i)
+        
+    for table in tables:
+        temp_val = 10
+        humidity_val = 50
+        windspeed_val = 5
+        soil_moisture_val = 30
+        sensor_readings[table] = []
+        for i in range(100):
+            if random.randint(0,10) > 9:
+                continue #skip this reading
+            temp_val += random.uniform(-0.5, 0.5)
+            humidity_val += random.uniform(-0.3, 0.3)
+            windspeed_val += random.uniform(-0.5, 0.5)
+            soil_moisture_val += random.uniform(-0.2, 0.2)
+            sensor_readings[table].append((timestamps[i], round(temp_val, 2), round(humidity_val, 2), round(windspeed_val, 2), round(soil_moisture_val, 2)))
     return sensor_readings
 
-tables = ['sensor_readings1', 'sensor_readings2', 'sensor_readings3']
+
 def insert_sensor_readings(sensor_readings):
     for table in tables:
         with cnx.cursor() as cursor:
-            for reading in sensor_readings:
+            for reading in sensor_readings[table]:
                 cursor.execute(f"INSERT INTO {table} (timestamp, temperature, humidity, windspeed, `soil moisture`) VALUES (%s, %s, %s, %s, %s)", reading)
     cnx.commit()
 

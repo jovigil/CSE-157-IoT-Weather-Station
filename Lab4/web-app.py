@@ -80,14 +80,22 @@ def update_config(POLL_DELAY):
             
         
 
-def average_by_timestamp(timestamps, values):
-    grouped = defaultdict(list)
-    for ts, val in zip(timestamps, values):
-        grouped[ts].append(val)
+def get_avg_data(all_data, sensor_type):
+    #first value is a timestamp, second value is a list of values from each table at that timestamp
+    all_data_of_sensor = []
+    for data in all_data.values():
+        for entry in data:
+            timestamp = entry['timestamp']
+            if timestamp in [x[0] for x in all_data_of_sensor]:
+                for x in all_data_of_sensor:
+                    if x[0] == timestamp:
+                        sum = entry[sensor_type]
+                        sum += x[1][0]
+                        x[1][0] = sum / 2
+            else:
+                all_data_of_sensor.append((timestamp, [entry[sensor_type]]))
 
-    averaged = sorted((ts, sum(vals)/len(vals)) for ts, vals in grouped.items())
-    avg_timestamps, avg_values = zip(*averaged)
-    return list(avg_timestamps), list(avg_values)
+    return sorted(all_data_of_sensor, key=lambda x: x[0])
 
 def plot_data():
     """
@@ -98,66 +106,37 @@ def plot_data():
                               host='127.0.0.1',
                               database='piSenseDB') as sql_connection:
         sensor_types = ['temperature', 'humidity', 'soil moisture', 'windspeed']
-        sensor_data_by_type = {stype: defaultdict(list) for stype in sensor_types}
-        timestamps_by_pi = defaultdict(list)
-
-                # Collect data per Pi
+        sensor_labels = ['Temperature (°C)', 'Humidity (%)', 'Soil Moisture (%)', 'Wind Speed (m/s)']
+        all_data = {}
+        all_avg_data = {}
+        #This gets all avg data from all tables
         for table in tables:
-            data = get_sensor_data(sql_connection, table)
-            if not data:
-                print(f"No data found in {table}. Skipping.")
-                continue
+            all_data[table] = get_sensor_data(sql_connection, table)
+        for sensor_type in sensor_types:
+            all_avg_data[sensor_type] = get_avg_data(all_data, sensor_type) #This is a tuple of (timestamp, [value])
+        print(all_avg_data)
+        for sensor_type in sensor_types:
+                # Plot each table's data
+            plt.figure(figsize=(10, 5))
+            for table in tables:
+                table_data = all_data[table]
+                timestamps = [entry['timestamp'] for entry in table_data]
+                values = [entry[sensor_type] for entry in table_data]
+                plt.plot(timestamps, values, marker='.', linestyle='--', label=f'{table}')
 
-            timestamps = [row['timestamp'] for row in data]
-            timestamps_by_pi[table] = timestamps
-
-            for stype in sensor_types:
-                values = [row[stype] for row in data]
-                sensor_data_by_type[stype][table] = values
-
-        # Plot per sensor type
-        for stype in sensor_types:
-            plt.figure(figsize=(12, 8))
-            all_avg_values = []
-            shared_timestamps = None
-
-            for table, values in sensor_data_by_type[stype].items():
-                ts_raw = timestamps_by_pi[table]
-                ts_avg, vals_avg = average_by_timestamp(ts_raw, values)
-
-                if shared_timestamps is None:
-                    shared_timestamps = ts_avg  # initialize for later averaging
-                elif ts_avg != shared_timestamps:
-                    print(f"Warning: timestamps for {table} differ, skipping average line.")
-                    shared_timestamps = None
-
-                all_avg_values.append(vals_avg)
-                plt.plot(ts_avg, vals_avg, label=f'{table}')
-
-            # Compute and plot the average line (only if timestamps are aligned)
-            if shared_timestamps and all(len(vals) == len(shared_timestamps) for vals in all_avg_values):
-                avg_array = np.mean(np.array(all_avg_values), axis=0)
-                plt.plot(shared_timestamps, avg_array, label='Average', linewidth=3, linestyle='--')
-
-            # Axis settings
+            timestamps = [entry[0] for entry in all_avg_data[sensor_type]]
+            values = [entry[1][0] for entry in all_avg_data[sensor_type]]
+            plt.plot(timestamps, values, marker='o', label='Avg')
             plt.xlabel('Timestamp')
-            plt.ylabel(stype.title())
-            plt.title(f'{stype.title()} vs Time')
+            plt.ylabel(sensor_labels[sensor_types.index(sensor_type)])
+            plt.title(f'{sensor_labels[sensor_types.index(sensor_type)]} Over Time')
             plt.xticks(rotation=45)
-            plt.legend()
             plt.tight_layout()
-
-            # Optional: y-axis padding for zoomed-out look
-            flat_vals = [v for sublist in all_avg_values for v in sublist]
-            if flat_vals:
-                ymin, ymax = min(flat_vals), max(flat_vals)
-                yrange = ymax - ymin if ymax != ymin else 1
-                plt.ylim(ymin - 2 * yrange, ymax + 2 * yrange)
-
-            fname = f'static/{stype}_plot.png'
-            plt.savefig(fname)
+            plt.legend()
+            plt.grid(True)
+            plt.savefig(f'static/{sensor_type.replace(" ", "_")}.png')
             plt.close()
-
+        
 
 @app.route("/", methods=['GET'])
 def return_home():
