@@ -1,3 +1,8 @@
+*README*
+
+The main files for this project are primary.py, secondary.py, and token-ring.py. They are are configured to run on three Raspberry Pi 4s running Ubuntu 22.04. The scripts use the CircuitPython library and several of Adafruit's libraries for low level interfacing
+with their sensors.
+
 **Introduction**
 
 This project aimed to connect three Raspberry Pi 4’s together in an ad-hoc network and pass weather sensor data between them according to two paradigms: consecutive polling and token ring. My partner, Adam, and I’s implementation of these networked environmental sensing apps are scaled-down demonstrations of popular WSN (wireless sensor network) and IoT (Internet of Things) topologies. The consecutive polling approach represents a heterogeneous network in which one Pi must act as a gateway or datasink, while the token ring approach reflects a homogeneous P2P (peer-to-peer) topology. The foremost problems we solved in our implementations were properly coordinating TCP connections between the Pis and reacting to the dynamic network conditions consequent of mobile nodes in an ad-hoc configuration.
@@ -26,11 +31,11 @@ secondary.py is a generally simpler file. A single command line argument is pass
 
 The major issue my partner and I encountered when testing these scripts was getting the secondary Pis exception block to work correctly. Initially, the block was written such that the original socket would be closed (and the object therefore destroyed) upon error and a new one would be created inside the block using socket.socket(). Doing this generated an “address in use” error, crashing the program and making for sub-satisfactory robustness. We realized the solution was to let the primary Pi close the connection since it is already programmed to do so in get\_pi\_readings(), so we only needed to re-register using start() and begin listening again, letting the primary Pi take care of the rest.
 
-**Implementing Token Ring**
+**Implementing  Ring**
 
-Token rings deal with the problem of medium access control by passing a token (usually a small piece of signalling data) to each node to give it permission to utilize the communication channel. This is dissimilar to a contention-based MAC protocol like CSMA/CA because there _is_ no contention for the channel. It is basically like time division multiple access in that each node must wait for its turn to use the channel bandwidth, except instead of waiting for a certain period of time to talk, it will wait until it receives the token. Sometimes the token is simply implied by the act of receiving data from the preceding node before sending yours to the next node. The topology is therefore cyclical and no node will communicate out of turn ([source](https://en.wikipedia.org/wiki/Token_passing)).
+ rings deal with the problem of medium access control by passing a  (usually a small piece of signalling data) to each node to give it permission to utilize the communication channel. This is dissimilar to a contention-based MAC protocol like CSMA/CA because there _is_ no contention for the channel. It is basically like time division multiple access in that each node must wait for its turn to use the channel bandwidth, except instead of waiting for a certain period of time to talk, it will wait until it receives the . Sometimes the  is simply implied by the act of receiving data from the preceding node before sending yours to the next node. The topology is therefore cyclical and no node will communicate out of turn ([source](https://en.wikipedia.org/wiki/_passing)).
 
-My partner and I’s implementation has a token that is purely symbolic. We choose to prepend ”token” to each packet sent in the ring, but this was only to aid visualization and understanding of the token ring topology.
+My partner and I’s implementation has a  that is purely symbolic. We choose to prepend ”” to each packet sent in the ring, but this was only to aid visualization and understanding of the  ring topology.
 
 Since token ring is a P2P-like paradigm, each Pi runs the script token-ring.py. The first important aspect of this program is a global dictionary called CONFIG. It maps integer keys to dictionary values, where the integers (1, 2, 3) are an identifier for each Pi and the dictionary values are themselves dictionaries, in the format prev\_ip:”X.X.X.X”, this\_ip:X.X.X.X, next\_ip:”X.X.X.X”. This data structure is basically a virtual linked list that represents the links in the topology. CONFIG is accessed every time a Pi needs to send or receive a packet. However, its most interesting use is to repair the topology in the case of a single node disconnect and subsequently return to the original topology in the case of reconnection.
 
